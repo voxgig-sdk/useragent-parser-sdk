@@ -1,0 +1,20 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "API for parsing user agent strings, providing structured information about the client's browser, operating system, and device type. Users can retrieve detailed data by submitting their user agent string along with an API key."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.useragent.app"
+        }
+      ]
+      title: "UserAgent Parser API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

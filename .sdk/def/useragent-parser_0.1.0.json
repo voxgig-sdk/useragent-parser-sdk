@@ -1,0 +1,302 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "UserAgent Parser API",
+    "description": "API for parsing user agent strings, providing structured information about the client's browser, operating system, and device type. Users can retrieve detailed data by submitting their user agent string along with an API key.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.useragent.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/parse": {
+      "get": {
+        "summary": "Parse a user agent string",
+        "description": "Parses the provided user agent string and returns structured information about the browser, operating system, device type, and other client details.",
+        "operationId": "parseUserAgent",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "description": "API key (72-character alphanumeric string)",
+            "schema": {
+              "type": "string",
+              "minLength": 72,
+              "maxLength": 72,
+              "pattern": "^[a-zA-Z0-9]{72}$"
+            }
+          },
+          {
+            "name": "ua",
+            "in": "query",
+            "required": true,
+            "description": "User agent string to be parsed",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully parsed user agent string",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "client_summary": {
+                      "type": "string",
+                      "description": "Summary of the client browser and OS"
+                    },
+                    "ua_family": {
+                      "type": "string",
+                      "description": "User agent family (e.g., Chrome, Firefox)"
+                    },
+                    "ua_version": {
+                      "type": "object",
+                      "properties": {
+                        "major": {
+                          "type": "integer"
+                        },
+                        "minor": {
+                          "type": "integer"
+                        },
+                        "patch": {
+                          "type": "integer"
+                        },
+                        "summary": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "os_family": {
+                      "type": "string",
+                      "description": "Operating system family"
+                    },
+                    "os_version": {
+                      "type": "object",
+                      "properties": {
+                        "major": {
+                          "type": "integer"
+                        },
+                        "minor": {
+                          "type": "integer"
+                        },
+                        "patch": {
+                          "type": "integer"
+                        },
+                        "summary": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "ua_type": {
+                      "type": "string",
+                      "description": "Type of user agent (e.g., browser, bot)"
+                    },
+                    "bot_info": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "category": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "url": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "vendor": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "url": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "os_meta": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "short_name": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "platform": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "ua_rendering_engine": {
+                      "type": "string",
+                      "description": "Browser rendering engine"
+                    },
+                    "ua_rendering_engine_version": {
+                      "type": "object",
+                      "properties": {
+                        "major": {
+                          "type": "integer",
+                          "nullable": true
+                        },
+                        "minor": {
+                          "type": "integer",
+                          "nullable": true
+                        },
+                        "patch": {
+                          "type": "integer",
+                          "nullable": true
+                        },
+                        "summary": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "device": {
+                      "type": "object",
+                      "properties": {
+                        "is_mobile": {
+                          "type": "boolean"
+                        },
+                        "is_tablet": {
+                          "type": "boolean"
+                        },
+                        "is_desktop": {
+                          "type": "boolean"
+                        },
+                        "brand": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "model": {
+                          "type": "string",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "client": {
+                      "type": "object",
+                      "properties": {
+                        "bot": {
+                          "type": "boolean"
+                        },
+                        "user": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "client_summary": "Chrome 51.0.2704/Linux",
+                  "ua_family": "Chrome",
+                  "ua_version": {
+                    "major": 51,
+                    "minor": 0,
+                    "patch": 2704,
+                    "summary": "Chrome 51.0.2704"
+                  },
+                  "os_family": "Linux",
+                  "os_version": {
+                    "major": 0,
+                    "minor": 0,
+                    "patch": 0,
+                    "summary": "Linux"
+                  },
+                  "ua_type": "browser",
+                  "bot_info": {
+                    "name": null,
+                    "category": null,
+                    "url": null,
+                    "vendor": {
+                      "name": null,
+                      "url": null
+                    }
+                  },
+                  "os_meta": {
+                    "name": "GNU/Linux",
+                    "short_name": "LIN",
+                    "version": null,
+                    "platform": "x64"
+                  },
+                  "ua_rendering_engine": "Blink",
+                  "ua_rendering_engine_version": {
+                    "major": null,
+                    "minor": null,
+                    "patch": null,
+                    "summary": "Blink"
+                  },
+                  "device": {
+                    "is_mobile": false,
+                    "is_tablet": false,
+                    "is_desktop": true,
+                    "brand": null,
+                    "model": null
+                  },
+                  "client": {
+                    "bot": false,
+                    "user": true
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Command unknown - The request is not recognized or formatted incorrectly"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key"
+          },
+          "402": {
+            "description": "Billing issue - Payment required or account billing problem"
+          },
+          "405": {
+            "description": "Command invalid - The HTTP method used is not allowed"
+          },
+          "409": {
+            "description": "Command malformed - The request parameters are incorrectly formatted"
+          },
+          "422": {
+            "description": "Unprocessable - The request was well-formed but contains semantic errors"
+          },
+          "500": {
+            "description": "Internal Server Error - An unexpected error occurred on the server"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "key",
+        "description": "API key required for authentication (72-character alphanumeric string)"
+      }
+    }
+  }
+}

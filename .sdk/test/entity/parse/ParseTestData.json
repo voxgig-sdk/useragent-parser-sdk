@@ -1,0 +1,66 @@
+{
+  "existing": {
+    "parse": {
+      "PARSE00": {
+        "bot_info": {},
+        "client": {},
+        "client_summary": "s7a",
+        "device": {},
+        "os_family": "s7c",
+        "os_meta": {},
+        "os_version": {},
+        "ua_family": "s7f",
+        "ua_rendering_engine": "s80",
+        "ua_rendering_engine_version": {},
+        "ua_type": "s82",
+        "ua_version": {}
+      },
+      "PARSE01": {
+        "bot_info": {},
+        "client": {},
+        "client_summary": "sf2",
+        "device": {},
+        "os_family": "sf4",
+        "os_meta": {},
+        "os_version": {},
+        "ua_family": "sf7",
+        "ua_rendering_engine": "sf8",
+        "ua_rendering_engine_version": {},
+        "ua_type": "sfa",
+        "ua_version": {}
+      },
+      "PARSE02": {
+        "bot_info": {},
+        "client": {},
+        "client_summary": "s16a",
+        "device": {},
+        "os_family": "s16c",
+        "os_meta": {},
+        "os_version": {},
+        "ua_family": "s16f",
+        "ua_rendering_engine": "s170",
+        "ua_rendering_engine_version": {},
+        "ua_type": "s172",
+        "ua_version": {}
+      }
+    }
+  },
+  "new": {
+    "parse": {
+      "parse_ref01": {
+        "bot_info": {},
+        "client": {},
+        "client_summary": "s1e2",
+        "device": {},
+        "os_family": "s1e4",
+        "os_meta": {},
+        "os_version": {},
+        "ua_family": "s1e7",
+        "ua_rendering_engine": "s1e8",
+        "ua_rendering_engine_version": {},
+        "ua_type": "s1ea",
+        "ua_version": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# BasicParseFlow
+
+main: kit: flow: BasicParseFlow:
+{
+  entity: "parse",
+  kind: "basic",
+  name: "BasicParseFlow",
+  step: [
+    {
+      input: {
+        ref: "parse_ref01",
+        srcdatavar: "parse_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-parse_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicParseFlow"
+}

@@ -1,0 +1,116 @@
+# Entity: parse
+
+main: kit: entity: parse: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "bot_info"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "client"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "client_summary"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "device"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "os_family"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "os_meta"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "os_version"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ua_family"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ua_rendering_engine"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ua_rendering_engine_version"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ua_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ua_version"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "parse"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "key"
+                orig: "key"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "ua"
+                orig: "ua"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/parse"
+          parts: [
+            "parse"
+          ]
+          select: {
+            exist: [
+              "key"
+              "ua"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
