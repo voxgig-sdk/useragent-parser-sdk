@@ -13,7 +13,8 @@
         "ua_rendering_engine": "s80",
         "ua_rendering_engine_version": {},
         "ua_type": "s82",
-        "ua_version": {}
+        "ua_version": {},
+        "id": "PARSE00"
       },
       "PARSE01": {
         "bot_info": {},
@@ -27,7 +28,8 @@
         "ua_rendering_engine": "sf8",
         "ua_rendering_engine_version": {},
         "ua_type": "sfa",
-        "ua_version": {}
+        "ua_version": {},
+        "id": "PARSE01"
       },
       "PARSE02": {
         "bot_info": {},
@@ -41,7 +43,8 @@
         "ua_rendering_engine": "s170",
         "ua_rendering_engine_version": {},
         "ua_type": "s172",
-        "ua_version": {}
+        "ua_version": {},
+        "id": "PARSE02"
       }
     }
   },

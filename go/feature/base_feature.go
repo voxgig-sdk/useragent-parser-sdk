@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/useragent-parser-sdk/core"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/core"
 )
 
 type BaseFeature struct {

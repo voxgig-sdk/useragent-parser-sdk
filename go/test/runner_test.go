@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/useragent-parser-sdk"
+	sdk "github.com/voxgig-sdk/useragent-parser-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/useragent-parser-sdk/go/utility/struct"
 )
 
 var envLocalOnce sync.Once

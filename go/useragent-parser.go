@@ -1,10 +1,10 @@
 package voxgiguseragentparsersdk
 
 import (
-	"github.com/voxgig-sdk/useragent-parser-sdk/core"
-	"github.com/voxgig-sdk/useragent-parser-sdk/entity"
-	"github.com/voxgig-sdk/useragent-parser-sdk/feature"
-	_ "github.com/voxgig-sdk/useragent-parser-sdk/utility"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/core"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/entity"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/feature"
+	_ "github.com/voxgig-sdk/useragent-parser-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

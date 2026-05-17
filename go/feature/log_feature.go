@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/useragent-parser-sdk/core"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/core"
 )
 
 type LogFeature struct {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/useragent-parser-sdk"
-	"github.com/voxgig-sdk/useragent-parser-sdk/core"
+	sdk "github.com/voxgig-sdk/useragent-parser-sdk/go"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/useragent-parser-sdk/go/utility/struct"
 )
 
 func TestParseEntity(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/useragent-parser-sdk"
-	"github.com/voxgig-sdk/useragent-parser-sdk/core"
+	sdk "github.com/voxgig-sdk/useragent-parser-sdk/go"
+	"github.com/voxgig-sdk/useragent-parser-sdk/go/core"
 )
 
 func TestParseDirect(t *testing.T) {
