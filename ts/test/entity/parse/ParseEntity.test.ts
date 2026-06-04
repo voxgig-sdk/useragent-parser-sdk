@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'USERAGENT_PARSER_TEST_PARSE_ENTID': idmap,
     'USERAGENT_PARSER_TEST_LIVE': 'FALSE',
     'USERAGENT_PARSER_TEST_EXPLAIN': 'FALSE',
-    'USERAGENT_PARSER_APIKEY': 'NONE',
   })
 
   idmap = env['USERAGENT_PARSER_TEST_PARSE_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new UseragentParserSDK(merge([
       {
-        apikey: env.USERAGENT_PARSER_APIKEY,
       },
       extra
     ]))

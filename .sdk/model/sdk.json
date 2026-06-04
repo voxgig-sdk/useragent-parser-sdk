@@ -13,7 +13,15 @@
           }
         ],
         "title": "UserAgent Parser API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Parse user agent strings into structured browser, OS, device, engine, and bot data",
+        "homepage": "https://useragent.app",
+        "docs_url": "https://useragent.app/api_specs.yaml",
+        "about_md": "The UserAgent Parser API takes a raw `User-Agent` string and returns a structured breakdown of the client that produced it. It is exposed as a single HTTPS endpoint at [api.useragent.app](https://api.useragent.app) and is intended to be called server-side from analytics, logging, fraud-detection, or device-targeting pipelines.\n\nWhat you get back from a parse:\n\n- Client details — browser/app family, version, and type\n- Operating system family, version, and metadata\n- Rendering engine information\n- Device classification (mobile, tablet, desktop) with vendor and brand\n- Bot detection flags\n\nThe service exposes one operation, `GET /parse`, which accepts a `ua` query parameter (the user agent string to analyze) and a `key` query parameter (a 72-character API key). CORS is enabled, so requests can be made from browser contexts as well as servers. Documented response codes include 200 for success, 401 for an invalid key, 402 for billing issues, 422 for content that cannot be parsed, plus standard 4xx/5xx error codes.",
+        "entity_desc": {
+          "parse": "The single parsing resource exposed by the API; call `GET /parse?ua=<user-agent>&key=<api-key>` to receive structured client, OS, engine, device, and bot fields."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -21,7 +29,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "parse": {

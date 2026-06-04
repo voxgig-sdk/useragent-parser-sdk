@@ -117,7 +117,6 @@ func parseBasicSetup(extra map[string]any) *entityTestSetup {
 		"USERAGENTPARSER_TEST_PARSE_ENTID": idmap,
 		"USERAGENTPARSER_TEST_LIVE":      "FALSE",
 		"USERAGENTPARSER_TEST_EXPLAIN":   "FALSE",
-		"USERAGENTPARSER_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["USERAGENTPARSER_TEST_PARSE_ENTID"])
@@ -128,7 +127,6 @@ func parseBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["USERAGENTPARSER_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["USERAGENTPARSER_APIKEY"],
 			},
 			extra,
 		})

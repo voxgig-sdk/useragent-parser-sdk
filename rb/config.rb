@@ -15,9 +15,6 @@ module UseragentParserConfig
       },
       "options" => {
         "base" => "https://api.useragent.app",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
