@@ -91,6 +91,7 @@ function parse_basic_setup(extra)
     ["USERAGENTPARSER_TEST_PARSE_ENTID"] = idmap,
     ["USERAGENTPARSER_TEST_LIVE"] = "FALSE",
     ["USERAGENTPARSER_TEST_EXPLAIN"] = "FALSE",
+    ["USERAGENTPARSER_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function parse_basic_setup(extra)
   if env["USERAGENTPARSER_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["USERAGENTPARSER_APIKEY"],
       },
       extra or {},
     })

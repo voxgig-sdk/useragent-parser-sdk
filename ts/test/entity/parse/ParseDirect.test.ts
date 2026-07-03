@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'USERAGENTPARSER_TEST_PARSE_ENTID': {},
     'USERAGENTPARSER_TEST_LIVE': 'FALSE',
+    'USERAGENTPARSER_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.USERAGENTPARSER_TEST_LIVE
 
   if (live) {
     const client = new UseragentParserSDK({
+      apikey: env.USERAGENTPARSER_APIKEY,
     })
 
     let idmap: any = env['USERAGENTPARSER_TEST_PARSE_ENTID']

@@ -85,6 +85,7 @@ function parse_basic_setup($extra)
         "USERAGENTPARSER_TEST_PARSE_ENTID" => $idmap,
         "USERAGENTPARSER_TEST_LIVE" => "FALSE",
         "USERAGENTPARSER_TEST_EXPLAIN" => "FALSE",
+        "USERAGENTPARSER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function parse_basic_setup($extra)
     if ($env["USERAGENTPARSER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["USERAGENTPARSER_APIKEY"],
             ],
             $extra ?? [],
         ]);

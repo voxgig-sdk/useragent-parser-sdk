@@ -59,12 +59,14 @@ def _parse_direct_setup(mockres):
     env = runner.env_override({
         "USERAGENTPARSER_TEST_PARSE_ENTID": {},
         "USERAGENTPARSER_TEST_LIVE": "FALSE",
+        "USERAGENTPARSER_APIKEY": "NONE",
     })
 
     live = env.get("USERAGENTPARSER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("USERAGENTPARSER_APIKEY"),
         }
         client = UseragentParserSDK(merged_opts)
         return {

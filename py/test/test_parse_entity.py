@@ -91,6 +91,7 @@ def _parse_basic_setup(extra):
         "USERAGENTPARSER_TEST_PARSE_ENTID": idmap,
         "USERAGENTPARSER_TEST_LIVE": "FALSE",
         "USERAGENTPARSER_TEST_EXPLAIN": "FALSE",
+        "USERAGENTPARSER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _parse_basic_setup(extra):
     if env.get("USERAGENTPARSER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("USERAGENTPARSER_APIKEY"),
             },
             extra or {},
         ])

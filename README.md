@@ -1,22 +1,8 @@
 # UseragentParser SDK
 
-Parse user agent strings into structured browser, OS, device, engine, and bot data
+UserAgent Parser API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About UserAgent Parser API
-
-The UserAgent Parser API takes a raw `User-Agent` string and returns a structured breakdown of the client that produced it. It is exposed as a single HTTPS endpoint at [api.useragent.app](https://api.useragent.app) and is intended to be called server-side from analytics, logging, fraud-detection, or device-targeting pipelines.
-
-What you get back from a parse:
-
-- Client details — browser/app family, version, and type
-- Operating system family, version, and metadata
-- Rendering engine information
-- Device classification (mobile, tablet, desktop) with vendor and brand
-- Bot detection flags
-
-The service exposes one operation, `GET /parse`, which accepts a `ua` query parameter (the user agent string to analyze) and a `key` query parameter (a 72-character API key). CORS is enabled, so requests can be made from browser contexts as well as servers. Documented response codes include 200 for success, 401 for an invalid key, 402 for billing issues, 422 for content that cannot be parsed, plus standard 4xx/5xx error codes.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install useragent-parser-sdk
 luarocks install useragent-parser-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { UseragentParserSDK } from 'useragent-parser'
 
-const client = new UseragentParserSDK({})
+const client = new UseragentParserSDK({
+  apikey: process.env.USERAGENT-PARSER_APIKEY,
+})
 
+// Load parse data
+const parse = await client.Parse().load({})
+console.log(parse.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Parse** | The single parsing resource exposed by the API; call `GET /parse?ua=<user-agent>&key=<api-key>` to receive structured client, OS, engine, device, and bot fields. | `/parse` |
+| **Parse** |  | `/parse` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from useragentparser_sdk import UseragentParserSDK
 
-client = UseragentParserSDK({})
+client = UseragentParserSDK({
+    "apikey": os.environ.get("USERAGENT-PARSER_APIKEY"),
+})
 
 
 # Load a specific parse
-parse, err = client.Parse(None).load(
-    {"id": "example_id"}, None
-)
+parse, err = client.Parse().load({"id": "example_id"})
+print(parse)
 ```
 
 ### PHP
@@ -127,13 +119,14 @@ parse, err = client.Parse(None).load(
 <?php
 require_once 'useragentparser_sdk.php';
 
-$client = new UseragentParserSDK([]);
+$client = new UseragentParserSDK([
+    "apikey" => getenv("USERAGENT-PARSER_APIKEY"),
+]);
 
 
 // Load a specific parse
-[$parse, $err] = $client->Parse(null)->load(
-    ["id" => "example_id"], null
-);
+[$parse, $err] = $client->Parse()->load(["id" => "example_id"]);
+print_r($parse);
 ```
 
 ### Golang
@@ -141,8 +134,13 @@ $client = new UseragentParserSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/useragent-parser-sdk/go"
 
-client := sdk.NewUseragentParserSDK(map[string]any{})
+client := sdk.NewUseragentParserSDK(map[string]any{
+    "apikey": os.Getenv("USERAGENT-PARSER_APIKEY"),
+})
 
+// Load parse data
+parse, err := client.Parse(nil).Load(map[string]any{}, nil)
+fmt.Println(parse)
 ```
 
 ### Ruby
@@ -150,13 +148,14 @@ client := sdk.NewUseragentParserSDK(map[string]any{})
 ```ruby
 require_relative "UseragentParser_sdk"
 
-client = UseragentParserSDK.new({})
+client = UseragentParserSDK.new({
+  "apikey" => ENV["USERAGENT-PARSER_APIKEY"],
+})
 
 
 # Load a specific parse
-parse, err = client.Parse(nil).load(
-  { "id" => "example_id" }, nil
-)
+parse, err = client.Parse().load({ "id" => "example_id" })
+puts parse
 ```
 
 ### Lua
@@ -164,13 +163,14 @@ parse, err = client.Parse(nil).load(
 ```lua
 local sdk = require("useragent-parser_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("USERAGENT-PARSER_APIKEY"),
+})
 
 
 -- Load a specific parse
-local parse, err = client:Parse(nil):load(
-  { id = "example_id" }, nil
-)
+local parse, err = client:Parse():load({ id = "example_id" })
+print(parse)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +189,21 @@ const result = await client.Parse().load({ id: 'test01' })
 ### Python
 
 ```python
-client = UseragentParserSDK.test(None, None)
-result, err = client.Parse(None).load(
-    {"id": "test01"}, None
-)
+client = UseragentParserSDK.test()
+result, err = client.Parse().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = UseragentParserSDK::test(null, null);
-[$result, $err] = $client->Parse(null)->load(
-    ["id" => "test01"], null
-);
+$client = UseragentParserSDK::test();
+[$result, $err] = $client->Parse()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Parse(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +212,15 @@ result, err := client.Parse(nil).Load(
 ### Ruby
 
 ```ruby
-client = UseragentParserSDK.test(nil, nil)
-result, err = client.Parse(nil).load(
-  { "id" => "test01" }, nil
-)
+client = UseragentParserSDK.test
+result, err = client.Parse().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Parse(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Parse():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,11 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the UserAgent Parser API
-
-- Upstream: [https://useragent.app](https://useragent.app)
-- API docs: [https://useragent.app/api_specs.yaml](https://useragent.app/api_specs.yaml)
 
 ---
 
