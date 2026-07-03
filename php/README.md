@@ -10,7 +10,7 @@ The PHP SDK for the UseragentParser API — an entity-oriented client using PHP 
 
 ## Install
 ```bash
-composer require voxgig/useragent-parser-sdk
+composer require voxgig-sdk/useragent-parser
 ```
 
 

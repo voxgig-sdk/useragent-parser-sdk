@@ -10,7 +10,7 @@ The Python SDK for the UseragentParser API — an entity-oriented client followi
 
 ## Install
 ```bash
-pip install useragent-parser-sdk
+pip install voxgig-sdk-useragent-parser
 ```
 
 Or install from source:

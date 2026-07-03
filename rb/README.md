@@ -10,13 +10,13 @@ The Ruby SDK for the UseragentParser API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install useragent-parser-sdk
+gem install voxgig-sdk-useragent-parser
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "useragent-parser-sdk"
+gem "voxgig-sdk-useragent-parser"
 ```
 
 Then run:

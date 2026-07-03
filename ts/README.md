@@ -10,7 +10,7 @@ The TypeScript SDK for the UseragentParser API — a type-safe, entity-oriented 
 
 ## Install
 ```bash
-npm install useragent-parser
+npm install @voxgig-sdk/useragent-parser
 ```
 ## Tutorial: your first API call
 

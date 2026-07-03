@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/useragent-parser",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the UserAgent Parser public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "useragent-parser"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/useragent-parser-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/useragent-parser-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/useragent-parser-sdk/issues"
+  },
   "main": "dist/UseragentParserSDK.js",
   "type": "commonjs",
   "types": "dist/UseragentParserSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "UseragentParser",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

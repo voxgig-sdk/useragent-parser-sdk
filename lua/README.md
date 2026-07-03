@@ -10,7 +10,7 @@ The Lua SDK for the UseragentParser API — an entity-oriented client using Lua 
 
 ## Install
 ```bash
-luarocks install useragent-parser-sdk
+luarocks install voxgig-sdk-useragent-parser
 ```
 
 If the module is not yet published, add the source directory to
