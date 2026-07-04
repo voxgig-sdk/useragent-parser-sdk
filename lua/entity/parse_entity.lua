@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ParseLoadMatch
+---@param ctrl? table
+---@return Parse
+---@return string? err
 function ParseEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

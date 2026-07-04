@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Parse,
+  ParseLoadMatch,
+} from '../UseragentParserTypes'
 
 // TODO: needs Entity superclass
-class ParseEntity extends UseragentParserEntityBase {
+class ParseEntity extends UseragentParserEntityBase<Parse> {
 
   constructor(client: UseragentParserSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ParseEntity extends UseragentParserEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ParseLoadMatch, ctrl?: Control): Promise<Parse> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ParseEntity extends UseragentParserEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Parse> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

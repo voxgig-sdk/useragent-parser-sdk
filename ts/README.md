@@ -9,9 +9,12 @@ The TypeScript SDK for the UseragentParser API — a type-safe, entity-oriented 
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/useragent-parser
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/useragent-parser-sdk/releases](https://github.com/voxgig-sdk/useragent-parser-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,17 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UseragentParserSDK } from 'useragent-parser'
+import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser'
 
 const client = new UseragentParserSDK({
-  apikey: process.env.USERAGENT-PARSER_APIKEY,
+  apikey: process.env.USERAGENT_PARSER_APIKEY,
 })
 ```
 
 ### 3. Load a parse
 
 ```ts
-const result = await client.Parse().load({ id: 'example_id' })
+const result = await client.parse.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = UseragentParserSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.parse.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -96,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.parse
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -133,8 +136,8 @@ const client = new UseragentParserSDK({
 Create a `.env.local` file at the project root:
 
 ```
-USERAGENT-PARSER_TEST_LIVE=TRUE
-USERAGENT-PARSER_APIKEY=<your-key>
+USERAGENT_PARSER_TEST_LIVE=TRUE
+USERAGENT_PARSER_APIKEY=<your-key>
 ```
 
 Then run:
@@ -277,7 +280,7 @@ API path: `/parse`
 
 ### Parse
 
-Create an instance: `const parse = client.Parse()`
+Create an instance: `const parse = client.parse`
 
 #### Operations
 
@@ -305,7 +308,7 @@ Create an instance: `const parse = client.Parse()`
 #### Example: Load
 
 ```ts
-const parse = await client.Parse().load({ id: 'parse_id' })
+const parse = await client.parse.load({ id: 'parse_id' })
 ```
 
 
@@ -366,7 +369,7 @@ useragent-parser/
 Import the SDK from the package root:
 
 ```ts
-import { UseragentParserSDK } from 'useragent-parser'
+import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser'
 ```
 
 ### Entity state
@@ -376,11 +379,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const parse = client.parse
+await parse.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// parse.data() now returns the loaded parse data
+// parse.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

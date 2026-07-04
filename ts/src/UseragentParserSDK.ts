@@ -2,6 +2,8 @@
 
 import { ParseEntity } from './entity/ParseEntity'
 
+export type * from './UseragentParserTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class UseragentParserSDK {
 
 
 
+  _parse?: ParseEntity
+
+  // Idiomatic facade: `client.parse.list()` / `client.parse.load({ id })`.
+  get parse(): ParseEntity {
+    return (this._parse ??= new ParseEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.parse` instead. */
   Parse(data?: any) {
     const self = this
     return new ParseEntity(self,data)

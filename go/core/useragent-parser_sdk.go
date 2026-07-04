@@ -245,6 +245,9 @@ func (sdk *UseragentParserSDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// Parse returns a Parse entity bound to this client.
+// Idiomatic usage: client.Parse(nil).List(nil, nil) or
+// client.Parse(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *UseragentParserSDK) Parse(data map[string]any) UseragentParserEntity {
 	return NewParseEntityFunc(sdk, data)
 }

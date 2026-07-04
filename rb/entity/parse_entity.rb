@@ -45,6 +45,7 @@ class ParseEntity
     end
   end
 
+  # @return [Parse, Hash] the current Parse data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class ParseEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Parse fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Parse.
+  #
+  # @param reqmatch [ParseLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Parse, Hash] the loaded Parse; raises UseragentParserError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

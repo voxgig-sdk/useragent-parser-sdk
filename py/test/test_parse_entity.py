@@ -49,8 +49,7 @@ class TestParseEntity:
         # LOAD
         parse_ref01_ent = client.Parse(None)
         parse_ref01_match_dt0 = {}
-        parse_ref01_data_dt0_loaded, err = parse_ref01_ent.load(parse_ref01_match_dt0, None)
-        assert err is None
+        parse_ref01_data_dt0_loaded = parse_ref01_ent.load(parse_ref01_match_dt0, None)
         assert parse_ref01_data_dt0_loaded is not None
 
 
