@@ -208,13 +208,7 @@ class UseragentParserSDK
   end
 
 
-  # Idiomatic facade: client.parse.list / client.parse.load({ "id" => ... })
-  def parse
-    require_relative 'entity/parse_entity'
-    @parse ||= ParseEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.parse instead.
+  # Canonical facade: client.Parse.list / client.Parse.load({ "id" => ... })
   def Parse(data = nil)
     require_relative 'entity/parse_entity'
     ParseEntity.new(self, data)

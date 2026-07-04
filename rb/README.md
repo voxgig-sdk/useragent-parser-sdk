@@ -34,8 +34,9 @@ client = UseragentParserSDK.new({
 
 ```ruby
 begin
-  result = client.parse.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Parse record (raises on error).
+  parse = client.Parse.load({ "id" => "example_id" })
+  puts parse
 rescue => err
   warn "load failed: #{err}"
 end
@@ -82,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = UseragentParserSDK.test
+client = UseragentParserSDK.test({
+  "entity" => { "parse" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.parse.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+parse = client.Parse.load({ "id" => "test01" })
+puts parse
 ```
 
 ### Use a custom fetch function
@@ -233,7 +238,7 @@ API path: `/parse`
 
 ### Parse
 
-Create an instance: `const parse = client.parse`
+Create an instance: `parse = client.Parse`
 
 #### Operations
 
@@ -260,8 +265,9 @@ Create an instance: `const parse = client.parse`
 
 #### Example: Load
 
-```ts
-const parse = await client.parse.load({ id: 'parse_id' })
+```ruby
+# load returns the bare Parse record (raises on error).
+parse = client.Parse.load({ "id" => "parse_id" })
 ```
 
 
@@ -336,7 +342,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-parse = client.parse
+parse = client.Parse
 parse.load({ "id" => "example_id" })
 
 # parse.data_get now returns the loaded parse data

@@ -233,10 +233,10 @@ class UseragentParserSDK
 
     private $_parse = null;
 
-    // Idiomatic facade: $client->parse()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Parse() (PHP method
-    // names are case-insensitive).
-    public function parse($data = null)
+    // Canonical facade: $client->Parse()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->parse()
+    // resolves here too.
+    public function Parse($data = null)
     {
         require_once __DIR__ . '/entity/parse_entity.php';
         if ($data === null) {

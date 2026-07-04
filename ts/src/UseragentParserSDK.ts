@@ -204,14 +204,7 @@ class UseragentParserSDK {
 
 
 
-  _parse?: ParseEntity
-
-  // Idiomatic facade: `client.parse.list()` / `client.parse.load({ id })`.
-  get parse(): ParseEntity {
-    return (this._parse ??= new ParseEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.parse` instead. */
+  // Entity access: `client.Parse().list()` / `client.Parse().load({ id })`.
   Parse(data?: any) {
     const self = this
     return new ParseEntity(self,data)

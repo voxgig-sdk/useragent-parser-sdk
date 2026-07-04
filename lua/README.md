@@ -36,9 +36,9 @@ local client = sdk.new({
 ### 3. Load a parse
 
 ```lua
-local result, err = client:parse():load({ id = "example_id" })
+local parse, err = client:Parse():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(parse)
 ```
 
 
@@ -84,8 +84,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:parse():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Parse():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -187,17 +187,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local parse, err = client:Parse():load({ id = "example_id" })
+    if err then error(err) end
+    -- parse is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -229,7 +234,7 @@ API path: `/parse`
 
 ### Parse
 
-Create an instance: `const parse = client.parse`
+Create an instance: `local parse = client:Parse(nil)`
 
 #### Operations
 
@@ -256,8 +261,8 @@ Create an instance: `const parse = client.parse`
 
 #### Example: Load
 
-```ts
-const parse = await client.parse.load({ id: 'parse_id' })
+```lua
+local parse, err = client:Parse():load({ id = "parse_id" })
 ```
 
 
@@ -332,7 +337,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local parse = client:parse()
+local parse = client:Parse()
 parse:load({ id = "example_id" })
 
 -- parse:data_get() now returns the loaded parse data

@@ -84,7 +84,7 @@ same parameters as `direct()`.
 ## ParseEntity
 
 ```lua
-local parse = client:parse(nil)
+local parse = client:Parse(nil)
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ local parse = client:parse(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:parse():load({ id = "parse_id" })
+local result, err = client:Parse():load({ id = "parse_id" })
 ```
 
 ### Common Methods

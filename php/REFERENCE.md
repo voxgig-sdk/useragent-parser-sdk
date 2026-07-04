@@ -86,7 +86,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ParseEntity
 
 ```php
-$parse = $client->parse();
+$parse = $client->Parse();
 ```
 
 ### Fields
@@ -113,7 +113,7 @@ $parse = $client->parse();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->parse()->load(["id" => "parse_id"]);
+$result = $client->Parse()->load(["id" => "parse_id"]);
 ```
 
 ### Common Methods

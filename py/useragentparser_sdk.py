@@ -220,25 +220,15 @@ class UseragentParserSDK:
         }
 
 
-    @property
-    def parse(self):
-        """Idiomatic facade: client.parse.list() / client.parse.load({"id": ...})."""
-        from entity.parse_entity import ParseEntity
-        cached = getattr(self, "_parse", None)
-        if cached is None:
-            cached = ParseEntity(self, None)
-            self._parse = cached
-        return cached
-
-    def Parse(self, data=None):
-        # Deprecated: use client.parse instead.
+    def Parse(self, data=None) -> "ParseEntity":
+        """Entity factory: client.Parse().list({}) / client.Parse().load({"id": ...})."""
         from entity.parse_entity import ParseEntity
         return ParseEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "UseragentParserSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class UseragentParserSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.parse_entity import ParseEntity

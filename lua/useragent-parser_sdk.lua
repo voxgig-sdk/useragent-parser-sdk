@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:parse():list() / client:parse():load({ id = ... })
-function UseragentParserSDK:parse(data)
+-- Idiomatic facade: client:Parse():list() / client:Parse():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function UseragentParserSDK:Parse(data)
   local EntityMod = require("entity.parse_entity")
   if data == nil then
     if self._parse == nil then
@@ -253,12 +254,6 @@ function UseragentParserSDK:parse(data)
     end
     return self._parse
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:parse() instead.
-function UseragentParserSDK:Parse(data)
-  local EntityMod = require("entity.parse_entity")
   return EntityMod.new(self, data)
 end
 

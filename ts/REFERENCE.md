@@ -110,7 +110,7 @@ Alias for `UseragentParserSDK.test()`.
 ## ParseEntity
 
 ```ts
-const parse = client.parse
+const parse = client.Parse()
 ```
 
 ### Fields
@@ -137,7 +137,7 @@ const parse = client.parse
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.parse.load({ id: 'parse_id' })
+const result = await client.Parse().load({ id: 'parse_id' })
 ```
 
 ### Common Methods

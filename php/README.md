@@ -35,9 +35,10 @@ $client = new UseragentParserSDK([
 
 ```php
 try {
-    $result = $client->parse()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Parse record (throws on error).
+    $parse = $client->Parse()->load(["id" => "example_id"]);
+    print_r($parse);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -83,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = UseragentParserSDK::test();
+$client = UseragentParserSDK::test([
+    "entity" => ["parse" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->parse()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$parse = $client->Parse()->load(["id" => "test01"]);
+print_r($parse);
 ```
 
 ### Use a custom fetch function
@@ -238,7 +243,7 @@ API path: `/parse`
 
 ### Parse
 
-Create an instance: `const parse = client.parse`
+Create an instance: `$parse = $client->Parse();`
 
 #### Operations
 
@@ -265,8 +270,9 @@ Create an instance: `const parse = client.parse`
 
 #### Example: Load
 
-```ts
-const parse = await client.parse.load({ id: 'parse_id' })
+```php
+// load() returns the bare Parse record (throws on error).
+$parse = $client->Parse()->load(["id" => "parse_id"]);
 ```
 
 
@@ -341,7 +347,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$parse = $client->parse();
+$parse = $client->Parse();
 $parse->load(["id" => "example_id"]);
 
 // $parse->dataGet() now returns the loaded parse data

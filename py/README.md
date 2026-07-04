@@ -36,10 +36,12 @@ client = UseragentParserSDK({
 
 ### 3. Load a parse
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.parse.load({"id": "example_id"})
-    print(result)
+    parse = client.Parse().load({"id": "example_id"})
+    print(parse)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -87,8 +89,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = UseragentParserSDK.test()
 
-result = client.parse.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+parse = client.Parse().load({"id": "test01"})
+# parse contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -234,7 +237,7 @@ API path: `/parse`
 
 ### Parse
 
-Create an instance: `const parse = client.parse`
+Create an instance: `parse = client.Parse()`
 
 #### Operations
 
@@ -261,8 +264,8 @@ Create an instance: `const parse = client.parse`
 
 #### Example: Load
 
-```ts
-const parse = await client.parse.load({ id: 'parse_id' })
+```python
+parse = client.Parse().load({"id": "parse_id"})
 ```
 
 
@@ -336,7 +339,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-parse = client.parse
+parse = client.Parse()
 parse.load({"id": "example_id"})
 
 # parse.data_get() now returns the loaded parse data

@@ -87,7 +87,7 @@ same parameters as `direct()`. Raises on error.
 ## ParseEntity
 
 ```ruby
-parse = client.parse
+parse = client.Parse
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ parse = client.parse
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.parse.load({ "id" => "parse_id" })
+result = client.Parse.load({ "id" => "parse_id" })
 ```
 
 ### Common Methods
