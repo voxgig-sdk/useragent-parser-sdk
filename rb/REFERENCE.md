@@ -8,7 +8,7 @@ Complete API reference for the UseragentParser Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'useragent-parser_sdk'
+require_relative 'UseragentParser_sdk'
 
 client = UseragentParserSDK.new(options)
 ```
@@ -94,18 +94,18 @@ parse = client.Parse
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bot_info` | ``$OBJECT`` | No |  |
-| `client` | ``$OBJECT`` | No |  |
-| `client_summary` | ``$STRING`` | No |  |
-| `device` | ``$OBJECT`` | No |  |
-| `os_family` | ``$STRING`` | No |  |
-| `os_meta` | ``$OBJECT`` | No |  |
-| `os_version` | ``$OBJECT`` | No |  |
-| `ua_family` | ``$STRING`` | No |  |
-| `ua_rendering_engine` | ``$STRING`` | No |  |
-| `ua_rendering_engine_version` | ``$OBJECT`` | No |  |
-| `ua_type` | ``$STRING`` | No |  |
-| `ua_version` | ``$OBJECT`` | No |  |
+| `bot_info` | `Hash` | No |  |
+| `client` | `Hash` | No |  |
+| `client_summary` | `String` | No |  |
+| `device` | `Hash` | No |  |
+| `os_family` | `String` | No |  |
+| `os_meta` | `Hash` | No |  |
+| `os_version` | `Hash` | No |  |
+| `ua_family` | `String` | No |  |
+| `ua_rendering_engine` | `String` | No |  |
+| `ua_rendering_engine_version` | `Hash` | No |  |
+| `ua_type` | `String` | No |  |
+| `ua_version` | `Hash` | No |  |
 
 ### Operations
 
@@ -114,7 +114,7 @@ parse = client.Parse
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Parse.load({ "id" => "parse_id" })
+result = client.Parse.load()
 ```
 
 ### Common Methods

@@ -21,6 +21,18 @@
 ---@field ua_version? table
 
 ---@class ParseLoadMatch
+---@field bot_info? table
+---@field client? table
+---@field client_summary? string
+---@field device? table
+---@field os_family? string
+---@field os_meta? table
+---@field os_version? table
+---@field ua_family? string
+---@field ua_rendering_engine? string
+---@field ua_rendering_engine_version? table
+---@field ua_type? string
+---@field ua_version? table
 
 local M = {}
 

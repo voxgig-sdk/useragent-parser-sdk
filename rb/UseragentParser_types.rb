@@ -61,7 +61,7 @@ Parse = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Parse#load (any subset of Parse fields).
+# Request payload for Parse#load.
 #
 # @!attribute [rw] bot_info
 #   @return [Hash, nil]

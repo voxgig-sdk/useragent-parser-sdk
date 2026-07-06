@@ -98,18 +98,18 @@ parse := client.Parse(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bot_info` | ``$OBJECT`` | No |  |
-| `client` | ``$OBJECT`` | No |  |
-| `client_summary` | ``$STRING`` | No |  |
-| `device` | ``$OBJECT`` | No |  |
-| `os_family` | ``$STRING`` | No |  |
-| `os_meta` | ``$OBJECT`` | No |  |
-| `os_version` | ``$OBJECT`` | No |  |
-| `ua_family` | ``$STRING`` | No |  |
-| `ua_rendering_engine` | ``$STRING`` | No |  |
-| `ua_rendering_engine_version` | ``$OBJECT`` | No |  |
-| `ua_type` | ``$STRING`` | No |  |
-| `ua_version` | ``$OBJECT`` | No |  |
+| `bot_info` | `map[string]any` | No |  |
+| `client` | `map[string]any` | No |  |
+| `client_summary` | `string` | No |  |
+| `device` | `map[string]any` | No |  |
+| `os_family` | `string` | No |  |
+| `os_meta` | `map[string]any` | No |  |
+| `os_version` | `map[string]any` | No |  |
+| `ua_family` | `string` | No |  |
+| `ua_rendering_engine` | `string` | No |  |
+| `ua_rendering_engine_version` | `map[string]any` | No |  |
+| `ua_type` | `string` | No |  |
+| `ua_version` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -118,7 +118,7 @@ parse := client.Parse(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Parse(nil).Load(map[string]any{"id": "parse_id"}, nil)
+result, err := client.Parse(nil).Load(nil, nil)
 ```
 
 ### Common Methods

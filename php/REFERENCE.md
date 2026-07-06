@@ -8,7 +8,7 @@ Complete API reference for the UseragentParser PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/useragent-parser_sdk.php';
+require_once __DIR__ . '/useragentparser_sdk.php';
 
 $client = new UseragentParserSDK($options);
 ```
@@ -46,11 +46,11 @@ $client = UseragentParserSDK::test();
 
 Create a new `ParseEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): UseragentParserUtility`
 
 Return a copy of the SDK utility object.
 
@@ -93,18 +93,18 @@ $parse = $client->Parse();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bot_info` | ``$OBJECT`` | No |  |
-| `client` | ``$OBJECT`` | No |  |
-| `client_summary` | ``$STRING`` | No |  |
-| `device` | ``$OBJECT`` | No |  |
-| `os_family` | ``$STRING`` | No |  |
-| `os_meta` | ``$OBJECT`` | No |  |
-| `os_version` | ``$OBJECT`` | No |  |
-| `ua_family` | ``$STRING`` | No |  |
-| `ua_rendering_engine` | ``$STRING`` | No |  |
-| `ua_rendering_engine_version` | ``$OBJECT`` | No |  |
-| `ua_type` | ``$STRING`` | No |  |
-| `ua_version` | ``$OBJECT`` | No |  |
+| `bot_info` | `array` | No |  |
+| `client` | `array` | No |  |
+| `client_summary` | `string` | No |  |
+| `device` | `array` | No |  |
+| `os_family` | `string` | No |  |
+| `os_meta` | `array` | No |  |
+| `os_version` | `array` | No |  |
+| `ua_family` | `string` | No |  |
+| `ua_rendering_engine` | `string` | No |  |
+| `ua_rendering_engine_version` | `array` | No |  |
+| `ua_type` | `string` | No |  |
+| `ua_version` | `array` | No |  |
 
 ### Operations
 
@@ -113,24 +113,24 @@ $parse = $client->Parse();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Parse()->load(["id" => "parse_id"]);
+$result = $client->Parse()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -139,7 +139,7 @@ Set the entity match criteria.
 Create a new `ParseEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

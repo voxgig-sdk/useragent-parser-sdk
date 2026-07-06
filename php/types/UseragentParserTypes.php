@@ -29,7 +29,7 @@ class Parse
     public ?array $ua_version = null;
 }
 
-/** Match filter for Parse#load (any subset of Parse fields). */
+/** Request payload for Parse#load. */
 class ParseLoadMatch
 {
     public ?array $bot_info = null;

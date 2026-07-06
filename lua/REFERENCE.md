@@ -91,18 +91,18 @@ local parse = client:Parse(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bot_info` | ``$OBJECT`` | No |  |
-| `client` | ``$OBJECT`` | No |  |
-| `client_summary` | ``$STRING`` | No |  |
-| `device` | ``$OBJECT`` | No |  |
-| `os_family` | ``$STRING`` | No |  |
-| `os_meta` | ``$OBJECT`` | No |  |
-| `os_version` | ``$OBJECT`` | No |  |
-| `ua_family` | ``$STRING`` | No |  |
-| `ua_rendering_engine` | ``$STRING`` | No |  |
-| `ua_rendering_engine_version` | ``$OBJECT`` | No |  |
-| `ua_type` | ``$STRING`` | No |  |
-| `ua_version` | ``$OBJECT`` | No |  |
+| `bot_info` | `table` | No |  |
+| `client` | `table` | No |  |
+| `client_summary` | `string` | No |  |
+| `device` | `table` | No |  |
+| `os_family` | `string` | No |  |
+| `os_meta` | `table` | No |  |
+| `os_version` | `table` | No |  |
+| `ua_family` | `string` | No |  |
+| `ua_rendering_engine` | `string` | No |  |
+| `ua_rendering_engine_version` | `table` | No |  |
+| `ua_type` | `string` | No |  |
+| `ua_version` | `table` | No |  |
 
 ### Operations
 
@@ -111,7 +111,7 @@ local parse = client:Parse(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Parse():load({ id = "parse_id" })
+local result, err = client:Parse():load()
 ```
 
 ### Common Methods

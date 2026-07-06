@@ -8,7 +8,7 @@ Complete API reference for the UseragentParser Python SDK.
 ### Constructor
 
 ```python
-from useragent-parser_sdk import UseragentParserSDK
+from useragentparser_sdk import UseragentParserSDK
 
 client = UseragentParserSDK(options)
 ```
@@ -88,18 +88,18 @@ parse = client.Parse()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bot_info` | ``$OBJECT`` | No |  |
-| `client` | ``$OBJECT`` | No |  |
-| `client_summary` | ``$STRING`` | No |  |
-| `device` | ``$OBJECT`` | No |  |
-| `os_family` | ``$STRING`` | No |  |
-| `os_meta` | ``$OBJECT`` | No |  |
-| `os_version` | ``$OBJECT`` | No |  |
-| `ua_family` | ``$STRING`` | No |  |
-| `ua_rendering_engine` | ``$STRING`` | No |  |
-| `ua_rendering_engine_version` | ``$OBJECT`` | No |  |
-| `ua_type` | ``$STRING`` | No |  |
-| `ua_version` | ``$OBJECT`` | No |  |
+| `bot_info` | `dict` | No |  |
+| `client` | `dict` | No |  |
+| `client_summary` | `str` | No |  |
+| `device` | `dict` | No |  |
+| `os_family` | `str` | No |  |
+| `os_meta` | `dict` | No |  |
+| `os_version` | `dict` | No |  |
+| `ua_family` | `str` | No |  |
+| `ua_rendering_engine` | `str` | No |  |
+| `ua_rendering_engine_version` | `dict` | No |  |
+| `ua_type` | `str` | No |  |
+| `ua_version` | `dict` | No |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ parse = client.Parse()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Parse().load({"id": "parse_id"})
+result = client.Parse().load()
 ```
 
 ### Common Methods

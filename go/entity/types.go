@@ -24,8 +24,7 @@ type Parse struct {
 	UaVersion *map[string]any `json:"ua_version,omitempty"`
 }
 
-// ParseLoadMatch mirrors the parse fields as an all-optional match
-// filter (Go analog of Partial<Parse>).
+// ParseLoadMatch is the typed request payload for Parse.LoadTyped.
 type ParseLoadMatch struct {
 	BotInfo *map[string]any `json:"bot_info,omitempty"`
 	Client *map[string]any `json:"client,omitempty"`

@@ -221,7 +221,7 @@ class UseragentParserSDK:
 
 
     def Parse(self, data=None) -> "ParseEntity":
-        """Entity factory: client.Parse().list({}) / client.Parse().load({"id": ...})."""
+        """Entity factory: client.Parse().list() / client.Parse().load({"id": ...})."""
         from entity.parse_entity import ParseEntity
         return ParseEntity(self, data)
 
