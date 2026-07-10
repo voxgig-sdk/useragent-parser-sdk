@@ -39,7 +39,7 @@ class Config {
     base: 'https://api.useragent.app',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {

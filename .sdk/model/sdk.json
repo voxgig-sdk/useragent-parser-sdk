@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -280,14 +277,24 @@
       },
       "info": {
         "description": "API for parsing user agent strings, providing structured information about the client's browser, operating system, and device type. Users can retrieve detailed data by submitting their user agent string along with an API key.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "query",
+          "name": "key",
+          "prefix": "",
+          "scheme": "ApiKeyAuth",
+          "type": "apiKey"
+        },
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.useragent.app"
           }
         ],
+        "summary": "API for parsing user agent strings, providing structured information about the client's browser, operating system, and device type.",
         "title": "UserAgent Parser API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://useragent.app"
       },
       "option": {},
       "target": {
@@ -340,6 +347,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -390,6 +400,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

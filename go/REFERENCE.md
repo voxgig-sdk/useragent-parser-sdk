@@ -92,6 +92,7 @@ same parameters as `Direct()`.
 
 ```go
 parse := client.Parse(nil)
+fmt.Println(parse.GetName()) // "parse"
 ```
 
 ### Fields
@@ -119,6 +120,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Parse(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
