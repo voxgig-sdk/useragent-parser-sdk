@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- UseragentParser SDK exists test
 
 local sdk = require("useragent-parser_sdk")
 
