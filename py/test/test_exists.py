@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# UseragentParser SDK exists test
 
 import pytest
 from useragentparser_sdk import UseragentParserSDK

@@ -141,6 +141,7 @@ module UseragentParserConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/parse",
                   "parts" => [

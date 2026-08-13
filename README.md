@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = UseragentParserSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = UseragentParserSDK.test({
+  entity: {
+    parse: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const parse = await client.Parse().load()
-// parse is a bare Parse populated with mock data
+// parse is the Parse entity, populated with mock data
+// — call parse.data() for the record itself
 console.log(parse)
 ```
 
@@ -189,7 +198,7 @@ $client = new UseragentParserSDK([
 ]);
 
 
-// Load a specific parse (returns the bare record; throws on error)
+// Load a specific parse (returns the ENTITY; call data_get() for the record; throws on error)
 $parse = $client->Parse()->load();
 print_r($parse);
 ```
@@ -221,7 +230,7 @@ client = UseragentParserSDK.new({
 })
 
 
-# Load a specific parse (returns the bare record; raises on error)
+# Load a specific parse (returns the ENTITY; call data_get for the record)
 parse = client.Parse.load()
 puts parse
 ```
@@ -357,6 +366,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.useragent.app](https://api.useragent.app)
 

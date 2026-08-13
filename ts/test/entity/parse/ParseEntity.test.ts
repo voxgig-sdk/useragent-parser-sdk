@@ -26,8 +26,8 @@ import {
 describe('ParseEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when USERAGENTPARSER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('USERAGENTPARSER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when USERAGENT_PARSER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('USERAGENT_PARSER_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = UseragentParserSDK.test()
@@ -62,7 +62,7 @@ describe('ParseEntity', async () => {
     // LOAD
     const parse_ref01_ent = client.Parse()
     const parse_ref01_match_dt0: any = {}
-    const parse_ref01_data_dt0 = await parse_ref01_ent.load(parse_ref01_match_dt0)
+    const parse_ref01_data_dt0 = (await parse_ref01_ent.load(parse_ref01_match_dt0)).data()
     assert(null != parse_ref01_data_dt0)
 
 

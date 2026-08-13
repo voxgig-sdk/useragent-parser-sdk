@@ -36,7 +36,7 @@ client = UseragentParserSDK.new({
 
 ```ruby
 begin
-  # load returns the bare Parse record (raises on error).
+  # load returns the ENTITY — call data_get for the Parse record (raises on error).
   parse = client.Parse.load()
   puts parse
 rescue => err
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = UseragentParserSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 parse = client.Parse.load()
 puts parse
 ```
@@ -290,7 +291,7 @@ Create an instance: `parse = client.Parse`
 #### Example: Load
 
 ```ruby
-# load returns the bare Parse record (raises on error).
+# load returns the ENTITY — call data_get for the Parse record (raises on error).
 parse = client.Parse.load()
 ```
 

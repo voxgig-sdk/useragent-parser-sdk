@@ -33,7 +33,7 @@ class ParseEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set USERAGENTPARSER_TEST_PARSE_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set USERAGENT_PARSER_TEST_PARSE_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,39 +77,39 @@ function parse_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("USERAGENTPARSER_TEST_PARSE_ENTID");
+    $entid_env_raw = getenv("USERAGENT_PARSER_TEST_PARSE_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "USERAGENTPARSER_TEST_PARSE_ENTID" => $idmap,
-        "USERAGENTPARSER_TEST_LIVE" => "FALSE",
-        "USERAGENTPARSER_TEST_EXPLAIN" => "FALSE",
-        "USERAGENTPARSER_APIKEY" => "NONE",
+        "USERAGENT_PARSER_TEST_PARSE_ENTID" => $idmap,
+        "USERAGENT_PARSER_TEST_LIVE" => "FALSE",
+        "USERAGENT_PARSER_TEST_EXPLAIN" => "FALSE",
+        "USERAGENT_PARSER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["USERAGENTPARSER_TEST_PARSE_ENTID"]);
+        $env["USERAGENT_PARSER_TEST_PARSE_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["USERAGENTPARSER_TEST_LIVE"] === "TRUE") {
+    if ($env["USERAGENT_PARSER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["USERAGENTPARSER_APIKEY"],
+                "apikey" => $env["USERAGENT_PARSER_APIKEY"],
             ],
             $extra ?? [],
         ]);
         $client = new UseragentParserSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["USERAGENTPARSER_TEST_LIVE"] === "TRUE";
+    $live = $env["USERAGENT_PARSER_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["USERAGENTPARSER_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["USERAGENT_PARSER_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

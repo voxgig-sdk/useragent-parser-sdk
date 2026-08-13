@@ -23,8 +23,8 @@ module UseragentParserTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("USERAGENTPARSER_TEST_LIVE")
-    override = getenv("USERAGENTPARSER_TEST_OVERRIDE")
+    live = getenv("USERAGENT_PARSER_TEST_LIVE")
+    override = getenv("USERAGENT_PARSER_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module UseragentParserTestRunner
       end
     end
 
-    explain = getenv("USERAGENTPARSER_TEST_EXPLAIN")
-    m["USERAGENTPARSER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("USERAGENT_PARSER_TEST_EXPLAIN")
+    m["USERAGENT_PARSER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

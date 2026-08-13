@@ -19,11 +19,15 @@ import {
 describe('ParseDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when USERAGENTPARSER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('USERAGENTPARSER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when USERAGENT_PARSER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('USERAGENT_PARSER_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new UseragentParserSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,19 +76,19 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'USERAGENTPARSER_TEST_PARSE_ENTID': {},
-    'USERAGENTPARSER_TEST_LIVE': 'FALSE',
-    'USERAGENTPARSER_APIKEY': 'NONE',
+    'USERAGENT_PARSER_TEST_PARSE_ENTID': {},
+    'USERAGENT_PARSER_TEST_LIVE': 'FALSE',
+    'USERAGENT_PARSER_APIKEY': 'NONE',
   })
 
-  const live = 'TRUE' === env.USERAGENTPARSER_TEST_LIVE
+  const live = 'TRUE' === env.USERAGENT_PARSER_TEST_LIVE
 
   if (live) {
     const client = new UseragentParserSDK({
-      apikey: env.USERAGENTPARSER_APIKEY,
+      apikey: env.USERAGENT_PARSER_APIKEY,
     })
 
-    let idmap: any = env['USERAGENTPARSER_TEST_PARSE_ENTID']
+    let idmap: any = env['USERAGENT_PARSER_TEST_PARSE_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

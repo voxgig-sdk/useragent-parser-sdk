@@ -29,7 +29,7 @@ describe("ParseEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set USERAGENTPARSER_TEST_PARSE_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set USERAGENT_PARSER_TEST_PARSE_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -84,39 +84,39 @@ function parse_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("USERAGENTPARSER_TEST_PARSE_ENTID")
+  local entid_env_raw = os.getenv("USERAGENT_PARSER_TEST_PARSE_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["USERAGENTPARSER_TEST_PARSE_ENTID"] = idmap,
-    ["USERAGENTPARSER_TEST_LIVE"] = "FALSE",
-    ["USERAGENTPARSER_TEST_EXPLAIN"] = "FALSE",
-    ["USERAGENTPARSER_APIKEY"] = "NONE",
+    ["USERAGENT_PARSER_TEST_PARSE_ENTID"] = idmap,
+    ["USERAGENT_PARSER_TEST_LIVE"] = "FALSE",
+    ["USERAGENT_PARSER_TEST_EXPLAIN"] = "FALSE",
+    ["USERAGENT_PARSER_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["USERAGENTPARSER_TEST_PARSE_ENTID"])
+    env["USERAGENT_PARSER_TEST_PARSE_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["USERAGENTPARSER_TEST_LIVE"] == "TRUE" then
+  if env["USERAGENT_PARSER_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["USERAGENTPARSER_APIKEY"],
+        apikey = env["USERAGENT_PARSER_APIKEY"],
       },
       extra or {},
     })
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["USERAGENTPARSER_TEST_LIVE"] == "TRUE"
+  local live = env["USERAGENT_PARSER_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["USERAGENTPARSER_TEST_EXPLAIN"] == "TRUE",
+    explain = env["USERAGENT_PARSER_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

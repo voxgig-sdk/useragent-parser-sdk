@@ -60,16 +60,16 @@ function parse_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["USERAGENTPARSER_TEST_PARSE_ENTID"] = {},
-    ["USERAGENTPARSER_TEST_LIVE"] = "FALSE",
-    ["USERAGENTPARSER_APIKEY"] = "NONE",
+    ["USERAGENT_PARSER_TEST_PARSE_ENTID"] = {},
+    ["USERAGENT_PARSER_TEST_LIVE"] = "FALSE",
+    ["USERAGENT_PARSER_APIKEY"] = "NONE",
   })
 
-  local live = env["USERAGENTPARSER_TEST_LIVE"] == "TRUE"
+  local live = env["USERAGENT_PARSER_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["USERAGENTPARSER_APIKEY"],
+      apikey = env["USERAGENT_PARSER_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

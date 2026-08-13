@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from useragentparser_sdk.utility.voxgig_struct import voxgig_struct as vs
 from useragentparser_sdk import UseragentParserSDK
-from core import helpers
+from useragentparser_sdk.core import helpers
 from test import runner
 
 
@@ -56,16 +56,16 @@ def _parse_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "USERAGENTPARSER_TEST_PARSE_ENTID": {},
-        "USERAGENTPARSER_TEST_LIVE": "FALSE",
-        "USERAGENTPARSER_APIKEY": "NONE",
+        "USERAGENT_PARSER_TEST_PARSE_ENTID": {},
+        "USERAGENT_PARSER_TEST_LIVE": "FALSE",
+        "USERAGENT_PARSER_APIKEY": "NONE",
     })
 
-    live = env.get("USERAGENTPARSER_TEST_LIVE") == "TRUE"
+    live = env.get("USERAGENT_PARSER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("USERAGENTPARSER_APIKEY"),
+            "apikey": env.get("USERAGENT_PARSER_APIKEY"),
         }
         client = UseragentParserSDK(merged_opts)
         return {

@@ -43,8 +43,8 @@ class UseragentParserTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('USERAGENTPARSER_TEST_LIVE');
-        $override = self::getenv('USERAGENTPARSER_TEST_OVERRIDE');
+        $live = self::getenv('USERAGENT_PARSER_TEST_LIVE');
+        $override = self::getenv('USERAGENT_PARSER_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class UseragentParserTestRunner
             }
         }
 
-        $explain = self::getenv('USERAGENTPARSER_TEST_EXPLAIN');
+        $explain = self::getenv('USERAGENT_PARSER_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['USERAGENTPARSER_TEST_EXPLAIN'] = $explain;
+            $m['USERAGENT_PARSER_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 const client = UseragentParserSDK.test()
 
 const parse = await client.Parse().load()
-// parse is a bare entity populated with mock response data
+// parse is the entity, populated with mock response data
+// — call parse.data() for the record itself
 console.log(parse)
 ```
 

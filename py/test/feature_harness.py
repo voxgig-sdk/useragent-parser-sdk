@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import UseragentParserControl
-from core.error import UseragentParserError
-from core.result import UseragentParserResult
-from core.spec import UseragentParserSpec
+from useragentparser_sdk.config import make_config
+from useragentparser_sdk.features import _make_feature
+from useragentparser_sdk.core.control import UseragentParserControl
+from useragentparser_sdk.core.error import UseragentParserError
+from useragentparser_sdk.core.result import UseragentParserResult
+from useragentparser_sdk.core.spec import UseragentParserSpec
 
 
 # True when this SDK was generated with the named feature.

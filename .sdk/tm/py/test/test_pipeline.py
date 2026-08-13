@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import UseragentParserSDK
-from core.error import UseragentParserError
-from core.result import UseragentParserResult
-from core.response import UseragentParserResponse
-from core.spec import UseragentParserSpec
-from feature.base_feature import UseragentParserBaseFeature
+from projectname_sdk.core.error import UseragentParserError
+from projectname_sdk.core.result import UseragentParserResult
+from projectname_sdk.core.response import UseragentParserResponse
+from projectname_sdk.core.spec import UseragentParserSpec
+from projectname_sdk.feature.base_feature import UseragentParserBaseFeature
 
 
 def _client():
