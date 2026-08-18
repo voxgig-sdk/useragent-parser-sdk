@@ -28,7 +28,7 @@ class UseragentParserSDK
     utility = UseragentParserUtility.new
     @_utility = utility
 
-    config = UseragentParserConfig.make_config
+    config = UseragentParserConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

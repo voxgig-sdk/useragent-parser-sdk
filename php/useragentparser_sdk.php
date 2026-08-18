@@ -40,7 +40,7 @@ class UseragentParserSDK
         $utility = new UseragentParserUtility();
         $this->_utility = $utility;
 
-        $config = UseragentParserConfig::make_config();
+        $config = UseragentParserConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

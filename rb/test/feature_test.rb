@@ -15,7 +15,7 @@ require_relative "../UseragentParser_sdk"
 module UseragentParserFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = UseragentParserConfig.make_config["feature"]
+    f = UseragentParserConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

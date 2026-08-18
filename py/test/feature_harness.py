@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from useragentparser_sdk.config import make_config
+from useragentparser_sdk.config import shared_config
 from useragentparser_sdk.features import _make_feature
 from useragentparser_sdk.core.control import UseragentParserControl
 from useragentparser_sdk.core.error import UseragentParserError
@@ -24,7 +24,7 @@ from useragentparser_sdk.core.spec import UseragentParserSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
