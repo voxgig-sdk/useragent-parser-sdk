@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -293,15 +293,15 @@ The `prepare()` method returns:
 | --- | --- |
 | `bot_info` |  |
 | `client` |  |
-| `client_summary` |  |
+| `client_summary` | Summary of the client browser and OS |
 | `device` |  |
-| `os_family` |  |
+| `os_family` | Operating system family |
 | `os_meta` |  |
 | `os_version` |  |
-| `ua_family` |  |
-| `ua_rendering_engine` |  |
+| `ua_family` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | Browser rendering engine |
 | `ua_rendering_engine_version` |  |
-| `ua_type` |  |
+| `ua_type` | Type of user agent (e.g., browser, bot) |
 | `ua_version` |  |
 
 Operations: load.
@@ -329,15 +329,15 @@ Create an instance: `const parse = client.Parse()`
 | --- | --- | --- |
 | `bot_info` | `Record<string, any>` |  |
 | `client` | `Record<string, any>` |  |
-| `client_summary` | `string` |  |
+| `client_summary` | `string` | Summary of the client browser and OS |
 | `device` | `Record<string, any>` |  |
-| `os_family` | `string` |  |
+| `os_family` | `string` | Operating system family |
 | `os_meta` | `Record<string, any>` |  |
 | `os_version` | `Record<string, any>` |  |
-| `ua_family` | `string` |  |
-| `ua_rendering_engine` | `string` |  |
+| `ua_family` | `string` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `string` | Browser rendering engine |
 | `ua_rendering_engine_version` | `Record<string, any>` |  |
-| `ua_type` | `string` |  |
+| `ua_type` | `string` | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `Record<string, any>` |  |
 
 #### Example: Load

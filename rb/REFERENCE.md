@@ -96,15 +96,15 @@ parse = client.Parse
 | --- | --- | --- | --- |
 | `bot_info` | `Hash` | No |  |
 | `client` | `Hash` | No |  |
-| `client_summary` | `String` | No |  |
+| `client_summary` | `String` | No | Summary of the client browser and OS |
 | `device` | `Hash` | No |  |
-| `os_family` | `String` | No |  |
+| `os_family` | `String` | No | Operating system family |
 | `os_meta` | `Hash` | No |  |
 | `os_version` | `Hash` | No |  |
-| `ua_family` | `String` | No |  |
-| `ua_rendering_engine` | `String` | No |  |
+| `ua_family` | `String` | No | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `String` | No | Browser rendering engine |
 | `ua_rendering_engine_version` | `Hash` | No |  |
-| `ua_type` | `String` | No |  |
+| `ua_type` | `String` | No | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `Hash` | No |  |
 
 ### Operations

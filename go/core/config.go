@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "UseragentParser",
+			"slug": "useragent-parser",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -44,6 +47,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "client_summary",
+						"short": "Summary of the client browser and OS",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -52,6 +56,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "os_family",
+						"short": "Operating system family",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -64,10 +69,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "ua_family",
+						"short": "User agent family (e.g., Chrome, Firefox)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ua_rendering_engine",
+						"short": "Browser rendering engine",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -76,6 +83,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "ua_type",
+						"short": "Type of user agent (e.g., browser, bot)",
 						"type": "`$STRING`",
 					},
 					map[string]any{

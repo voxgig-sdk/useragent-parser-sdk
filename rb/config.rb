@@ -19,6 +19,9 @@ module UseragentParserConfig
     {
       "main" => {
         "name" => "UseragentParser",
+        "slug" => "useragent-parser",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -52,6 +55,7 @@ module UseragentParserConfig
             },
             {
               "name" => "client_summary",
+              "short" => "Summary of the client browser and OS",
               "type" => "`$STRING`",
             },
             {
@@ -60,6 +64,7 @@ module UseragentParserConfig
             },
             {
               "name" => "os_family",
+              "short" => "Operating system family",
               "type" => "`$STRING`",
             },
             {
@@ -72,10 +77,12 @@ module UseragentParserConfig
             },
             {
               "name" => "ua_family",
+              "short" => "User agent family (e.g., Chrome, Firefox)",
               "type" => "`$STRING`",
             },
             {
               "name" => "ua_rendering_engine",
+              "short" => "Browser rendering engine",
               "type" => "`$STRING`",
             },
             {
@@ -84,6 +91,7 @@ module UseragentParserConfig
             },
             {
               "name" => "ua_type",
+              "short" => "Type of user agent (e.g., browser, bot)",
               "type" => "`$STRING`",
             },
             {

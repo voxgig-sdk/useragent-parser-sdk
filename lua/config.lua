@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "UseragentParser",
+      slug = "useragent-parser",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -40,6 +43,7 @@ local function make_config()
           },
           {
             ["name"] = "client_summary",
+            ["short"] = "Summary of the client browser and OS",
             ["type"] = "`$STRING`",
           },
           {
@@ -48,6 +52,7 @@ local function make_config()
           },
           {
             ["name"] = "os_family",
+            ["short"] = "Operating system family",
             ["type"] = "`$STRING`",
           },
           {
@@ -60,10 +65,12 @@ local function make_config()
           },
           {
             ["name"] = "ua_family",
+            ["short"] = "User agent family (e.g., Chrome, Firefox)",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "ua_rendering_engine",
+            ["short"] = "Browser rendering engine",
             ["type"] = "`$STRING`",
           },
           {
@@ -72,6 +79,7 @@ local function make_config()
           },
           {
             ["name"] = "ua_type",
+            ["short"] = "Type of user agent (e.g., browser, bot)",
             ["type"] = "`$STRING`",
           },
           {

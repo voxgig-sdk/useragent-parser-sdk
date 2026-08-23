@@ -231,15 +231,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `bot_info` |  |
 | `client` |  |
-| `client_summary` |  |
+| `client_summary` | Summary of the client browser and OS |
 | `device` |  |
-| `os_family` |  |
+| `os_family` | Operating system family |
 | `os_meta` |  |
 | `os_version` |  |
-| `ua_family` |  |
-| `ua_rendering_engine` |  |
+| `ua_family` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | Browser rendering engine |
 | `ua_rendering_engine_version` |  |
-| `ua_type` |  |
+| `ua_type` | Type of user agent (e.g., browser, bot) |
 | `ua_version` |  |
 
 Operations: Load.
@@ -267,15 +267,15 @@ Create an instance: `local parse = client:Parse(nil)`
 | --- | --- | --- |
 | `bot_info` | `table` |  |
 | `client` | `table` |  |
-| `client_summary` | `string` |  |
+| `client_summary` | `string` | Summary of the client browser and OS |
 | `device` | `table` |  |
-| `os_family` | `string` |  |
+| `os_family` | `string` | Operating system family |
 | `os_meta` | `table` |  |
 | `os_version` | `table` |  |
-| `ua_family` | `string` |  |
-| `ua_rendering_engine` | `string` |  |
+| `ua_family` | `string` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `string` | Browser rendering engine |
 | `ua_rendering_engine_version` | `table` |  |
-| `ua_type` | `string` |  |
+| `ua_type` | `string` | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `table` |  |
 
 #### Example: Load

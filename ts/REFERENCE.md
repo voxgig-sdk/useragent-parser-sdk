@@ -119,15 +119,15 @@ const parse = client.Parse()
 | --- | --- | --- | --- |
 | `bot_info` | `Record<string, any>` | No |  |
 | `client` | `Record<string, any>` | No |  |
-| `client_summary` | `string` | No |  |
+| `client_summary` | `string` | No | Summary of the client browser and OS |
 | `device` | `Record<string, any>` | No |  |
-| `os_family` | `string` | No |  |
+| `os_family` | `string` | No | Operating system family |
 | `os_meta` | `Record<string, any>` | No |  |
 | `os_version` | `Record<string, any>` | No |  |
-| `ua_family` | `string` | No |  |
-| `ua_rendering_engine` | `string` | No |  |
+| `ua_family` | `string` | No | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `string` | No | Browser rendering engine |
 | `ua_rendering_engine_version` | `Record<string, any>` | No |  |
-| `ua_type` | `string` | No |  |
+| `ua_type` | `string` | No | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `Record<string, any>` | No |  |
 
 ### Operations

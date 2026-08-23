@@ -90,15 +90,15 @@ parse = client.Parse()
 | --- | --- | --- | --- |
 | `bot_info` | `dict` | No |  |
 | `client` | `dict` | No |  |
-| `client_summary` | `str` | No |  |
+| `client_summary` | `str` | No | Summary of the client browser and OS |
 | `device` | `dict` | No |  |
-| `os_family` | `str` | No |  |
+| `os_family` | `str` | No | Operating system family |
 | `os_meta` | `dict` | No |  |
 | `os_version` | `dict` | No |  |
-| `ua_family` | `str` | No |  |
-| `ua_rendering_engine` | `str` | No |  |
+| `ua_family` | `str` | No | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `str` | No | Browser rendering engine |
 | `ua_rendering_engine_version` | `dict` | No |  |
-| `ua_type` | `str` | No |  |
+| `ua_type` | `str` | No | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `dict` | No |  |
 
 ### Operations

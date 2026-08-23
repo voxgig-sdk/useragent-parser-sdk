@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'UseragentParser',
+        slug: "useragent-parser",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -68,6 +79,7 @@ class Config {
         },
         {
           "name": "client_summary",
+          "short": "Summary of the client browser and OS",
           "type": "`$STRING`"
         },
         {
@@ -76,6 +88,7 @@ class Config {
         },
         {
           "name": "os_family",
+          "short": "Operating system family",
           "type": "`$STRING`"
         },
         {
@@ -88,10 +101,12 @@ class Config {
         },
         {
           "name": "ua_family",
+          "short": "User agent family (e.g., Chrome, Firefox)",
           "type": "`$STRING`"
         },
         {
           "name": "ua_rendering_engine",
+          "short": "Browser rendering engine",
           "type": "`$STRING`"
         },
         {
@@ -100,6 +115,7 @@ class Config {
         },
         {
           "name": "ua_type",
+          "short": "Type of user agent (e.g., browser, bot)",
           "type": "`$STRING`"
         },
         {

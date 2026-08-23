@@ -48,6 +48,7 @@
               "active": true,
               "name": "client_summary",
               "req": false,
+              "short": "Summary of the client browser and OS",
               "type": "`$STRING`"
             },
             {
@@ -60,6 +61,7 @@
               "active": true,
               "name": "os_family",
               "req": false,
+              "short": "Operating system family",
               "type": "`$STRING`"
             },
             {
@@ -78,12 +80,14 @@
               "active": true,
               "name": "ua_family",
               "req": false,
+              "short": "User agent family (e.g., Chrome, Firefox)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ua_rendering_engine",
               "req": false,
+              "short": "Browser rendering engine",
               "type": "`$STRING`"
             },
             {
@@ -96,6 +100,7 @@
               "active": true,
               "name": "ua_type",
               "req": false,
+              "short": "Type of user agent (e.g., browser, bot)",
               "type": "`$STRING`"
             },
             {

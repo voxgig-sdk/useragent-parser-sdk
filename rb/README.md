@@ -241,15 +241,15 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `bot_info` |  |
 | `client` |  |
-| `client_summary` |  |
+| `client_summary` | Summary of the client browser and OS |
 | `device` |  |
-| `os_family` |  |
+| `os_family` | Operating system family |
 | `os_meta` |  |
 | `os_version` |  |
-| `ua_family` |  |
-| `ua_rendering_engine` |  |
+| `ua_family` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | Browser rendering engine |
 | `ua_rendering_engine_version` |  |
-| `ua_type` |  |
+| `ua_type` | Type of user agent (e.g., browser, bot) |
 | `ua_version` |  |
 
 Operations: Load.
@@ -277,15 +277,15 @@ Create an instance: `parse = client.Parse`
 | --- | --- | --- |
 | `bot_info` | `Hash` |  |
 | `client` | `Hash` |  |
-| `client_summary` | `String` |  |
+| `client_summary` | `String` | Summary of the client browser and OS |
 | `device` | `Hash` |  |
-| `os_family` | `String` |  |
+| `os_family` | `String` | Operating system family |
 | `os_meta` | `Hash` |  |
 | `os_version` | `Hash` |  |
-| `ua_family` | `String` |  |
-| `ua_rendering_engine` | `String` |  |
+| `ua_family` | `String` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `String` | Browser rendering engine |
 | `ua_rendering_engine_version` | `Hash` |  |
-| `ua_type` | `String` |  |
+| `ua_type` | `String` | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `Hash` |  |
 
 #### Example: Load

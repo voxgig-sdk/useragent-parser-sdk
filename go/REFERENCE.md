@@ -101,15 +101,15 @@ fmt.Println(parse.GetName()) // "parse"
 | --- | --- | --- | --- |
 | `bot_info` | `map[string]any` | No |  |
 | `client` | `map[string]any` | No |  |
-| `client_summary` | `string` | No |  |
+| `client_summary` | `string` | No | Summary of the client browser and OS |
 | `device` | `map[string]any` | No |  |
-| `os_family` | `string` | No |  |
+| `os_family` | `string` | No | Operating system family |
 | `os_meta` | `map[string]any` | No |  |
 | `os_version` | `map[string]any` | No |  |
-| `ua_family` | `string` | No |  |
-| `ua_rendering_engine` | `string` | No |  |
+| `ua_family` | `string` | No | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `string` | No | Browser rendering engine |
 | `ua_rendering_engine_version` | `map[string]any` | No |  |
-| `ua_type` | `string` | No |  |
+| `ua_type` | `string` | No | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `map[string]any` | No |  |
 
 ### Operations

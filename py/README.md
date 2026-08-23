@@ -248,15 +248,15 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `bot_info` |  |
 | `client` |  |
-| `client_summary` |  |
+| `client_summary` | Summary of the client browser and OS |
 | `device` |  |
-| `os_family` |  |
+| `os_family` | Operating system family |
 | `os_meta` |  |
 | `os_version` |  |
-| `ua_family` |  |
-| `ua_rendering_engine` |  |
+| `ua_family` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | Browser rendering engine |
 | `ua_rendering_engine_version` |  |
-| `ua_type` |  |
+| `ua_type` | Type of user agent (e.g., browser, bot) |
 | `ua_version` |  |
 
 Operations: Load.
@@ -284,15 +284,15 @@ Create an instance: `parse = client.Parse()`
 | --- | --- | --- |
 | `bot_info` | `dict` |  |
 | `client` | `dict` |  |
-| `client_summary` | `str` |  |
+| `client_summary` | `str` | Summary of the client browser and OS |
 | `device` | `dict` |  |
-| `os_family` | `str` |  |
+| `os_family` | `str` | Operating system family |
 | `os_meta` | `dict` |  |
 | `os_version` | `dict` |  |
-| `ua_family` | `str` |  |
-| `ua_rendering_engine` | `str` |  |
+| `ua_family` | `str` | User agent family (e.g., Chrome, Firefox) |
+| `ua_rendering_engine` | `str` | Browser rendering engine |
 | `ua_rendering_engine_version` | `dict` |  |
-| `ua_type` | `str` |  |
+| `ua_type` | `str` | Type of user agent (e.g., browser, bot) |
 | `ua_version` | `dict` |  |
 
 #### Example: Load
