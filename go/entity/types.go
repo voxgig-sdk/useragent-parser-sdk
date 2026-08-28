@@ -30,18 +30,8 @@ type Parse struct {
 
 // ParseLoadMatch is the typed request payload for Parse.LoadTyped.
 type ParseLoadMatch struct {
-	BotInfo *map[string]any `json:"bot_info,omitempty"`
-	Client *map[string]any `json:"client,omitempty"`
-	ClientSummary *string `json:"client_summary,omitempty"`
-	Device *map[string]any `json:"device,omitempty"`
-	OsFamily *string `json:"os_family,omitempty"`
-	OsMeta *map[string]any `json:"os_meta,omitempty"`
-	OsVersion *map[string]any `json:"os_version,omitempty"`
-	UaFamily *string `json:"ua_family,omitempty"`
-	UaRenderingEngine *string `json:"ua_rendering_engine,omitempty"`
-	UaRenderingEngineVersion *map[string]any `json:"ua_rendering_engine_version,omitempty"`
-	UaType *string `json:"ua_type,omitempty"`
-	UaVersion *map[string]any `json:"ua_version,omitempty"`
+	Key string `json:"key"`
+	Ua string `json:"ua"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

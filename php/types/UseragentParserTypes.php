@@ -32,17 +32,7 @@ class Parse
 /** Request payload for Parse#load. */
 class ParseLoadMatch
 {
-    public ?array $bot_info = null;
-    public ?array $client = null;
-    public ?string $client_summary = null;
-    public ?array $device = null;
-    public ?string $os_family = null;
-    public ?array $os_meta = null;
-    public ?array $os_version = null;
-    public ?string $ua_family = null;
-    public ?string $ua_rendering_engine = null;
-    public ?array $ua_rendering_engine_version = null;
-    public ?string $ua_type = null;
-    public ?array $ua_version = null;
+    public string $key;
+    public string $ua;
 }
 

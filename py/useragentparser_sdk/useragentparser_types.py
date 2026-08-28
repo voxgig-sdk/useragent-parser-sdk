@@ -31,16 +31,6 @@ class Parse(TypedDict, total=False):
     ua_version: dict
 
 
-class ParseLoadMatch(TypedDict, total=False):
-    bot_info: dict
-    client: dict
-    client_summary: str
-    device: dict
-    os_family: str
-    os_meta: dict
-    os_version: dict
-    ua_family: str
-    ua_rendering_engine: str
-    ua_rendering_engine_version: dict
-    ua_type: str
-    ua_version: dict
+class ParseLoadMatch(TypedDict):
+    key: str
+    ua: str

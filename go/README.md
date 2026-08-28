@@ -54,7 +54,7 @@ func main() {
     })
 
     // Load a single parse — the value is the loaded record.
-    parse, err := client.Parse(nil).Load(nil, nil)
+    parse, err := client.Parse(nil).Load(map[string]any{"key": "example_key", "ua": "example_ua"}, nil)
     if err != nil {
         panic(err)
     }
@@ -69,7 +69,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-parse, err := client.Parse(nil).Load(nil, nil)
+parse, err := client.Parse(nil).Load(map[string]any{"key": "example", "ua": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -139,7 +139,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 parse, err := client.Parse(nil).Load(
-    nil, nil,
+    map[string]any{"key": "example", "ua": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -315,12 +315,35 @@ Create an instance: `parse := client.Parse(nil)`
 #### Example: Load
 
 ```go
-parse, err := client.Parse(nil).Load(nil, nil)
+parse, err := client.Parse(nil).Load(map[string]any{"key": "key", "ua": "ua"}, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(parse) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -397,7 +420,7 @@ stores the returned data and match criteria internally.
 
 ```go
 parse := client.Parse(nil)
-parse.Load(nil, nil)
+parse.Load(map[string]any{"key": "example", "ua": "example"}, nil)
 
 // parse.Data() now returns the parse data from the last load
 // parse.Match() returns the last match criteria
