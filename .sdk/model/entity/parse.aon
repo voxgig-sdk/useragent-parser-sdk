@@ -98,8 +98,10 @@ main: kit: entity: parse: {
           }
           method: "GET"
           orig: "/parse"
-          parts: [
-            "parse"
+          segments: [
+            {
+              lit: "parse"
+            }
           ]
           select: {
             exist: [

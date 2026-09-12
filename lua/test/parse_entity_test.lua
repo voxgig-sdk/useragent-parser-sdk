@@ -91,7 +91,7 @@ function parse_basic_setup(extra)
     ["USERAGENT_PARSER_TEST_PARSE_ENTID"] = idmap,
     ["USERAGENT_PARSER_TEST_LIVE"] = "FALSE",
     ["USERAGENT_PARSER_TEST_EXPLAIN"] = "FALSE",
-    ["USERAGENT_PARSER_APIKEY"] = "NONE",
+    ["USERAGENT_PARSER_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +102,9 @@ function parse_basic_setup(extra)
 
   if env["USERAGENT_PARSER_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["USERAGENT_PARSER_APIKEY"],
       },

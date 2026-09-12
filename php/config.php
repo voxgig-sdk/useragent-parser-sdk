@@ -142,8 +142,10 @@ class UseragentParserConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/parse',
-                  'parts' => [
-                    'parse',
+                  'segments' => [
+                    [
+                      'lit' => 'parse',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -154,6 +156,9 @@ class UseragentParserConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'parse',
                   ],
                 ],
               ],

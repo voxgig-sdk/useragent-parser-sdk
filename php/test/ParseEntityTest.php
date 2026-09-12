@@ -84,7 +84,7 @@ function parse_basic_setup($extra)
         "USERAGENT_PARSER_TEST_PARSE_ENTID" => $idmap,
         "USERAGENT_PARSER_TEST_LIVE" => "FALSE",
         "USERAGENT_PARSER_TEST_EXPLAIN" => "FALSE",
-        "USERAGENT_PARSER_APIKEY" => "NONE",
+        "USERAGENT_PARSER_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -95,10 +95,17 @@ function parse_basic_setup($extra)
 
     if ($env["USERAGENT_PARSER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["USERAGENT_PARSER_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
         $client = new UseragentParserSDK(Helpers::to_map($merged_opts));
     }
