@@ -105,7 +105,7 @@ local result, err = client:Parse():load({ key = "example", ua = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
+| TypeScript | `@voxgig-sdk/useragent-parser-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
 | Python | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
 | PHP | `voxgig-sdk/useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/useragent-parser-sdk/go` | `go get github.com/voxgig-sdk/useragent-parser-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Parse():load({ key = "example", ua = "example" })
 ### TypeScript
 
 ```ts
-import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser'
+import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser-sdk'
 
 const client = new UseragentParserSDK({
   apikey: process.env.USERAGENT_PARSER_APIKEY,

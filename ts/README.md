@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser'
+import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser-sdk'
 
 const client = new UseragentParserSDK({
   apikey: process.env.USERAGENT_PARSER_APIKEY,
@@ -429,7 +429,7 @@ useragent-parser/
 Import the SDK from the package root:
 
 ```ts
-import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser'
+import { UseragentParserSDK } from '@voxgig-sdk/useragent-parser-sdk'
 ```
 
 ### Entity state
