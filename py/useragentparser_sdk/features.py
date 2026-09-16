@@ -1,12 +1,18 @@
 # UseragentParser SDK feature factory
 
 from useragentparser_sdk.feature.base_feature import UseragentParserBaseFeature
+from useragentparser_sdk.feature.ratelimit_feature import UseragentParserRatelimitFeature
+from useragentparser_sdk.feature.retry_feature import UseragentParserRetryFeature
 from useragentparser_sdk.feature.test_feature import UseragentParserTestFeature
+from useragentparser_sdk.feature.timeout_feature import UseragentParserTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: UseragentParserBaseFeature(),
+    "ratelimit": lambda: UseragentParserRatelimitFeature(),
+    "retry": lambda: UseragentParserRetryFeature(),
     "test": lambda: UseragentParserTestFeature(),
+    "timeout": lambda: UseragentParserTimeoutFeature(),
 }
 
 

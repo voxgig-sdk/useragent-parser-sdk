@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "parse": {
           "active": true,
@@ -138,6 +202,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /parse",
+                    "json": "{\"operationId\":\"parseUserAgent\",\"parameters\":[{\"description\":\"API key (72-character alphanumeric string)\",\"in\":\"query\",\"name\":\"key\",\"required\":true,\"schema\":{\"maxLength\":72,\"minLength\":72,\"pattern\":\"^[a-zA-Z0-9]{72}$\",\"type\":\"string\"}},{\"description\":\"User agent string to be parsed\",\"in\":\"query\",\"name\":\"ua\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"bot_info\":{\"category\":null,\"name\":null,\"url\":null,\"vendor\":{\"name\":null,\"url\":null}},\"client\":{\"bot\":false,\"user\":true},\"client_summary\":\"Chrome 51.0.2704/Linux\",\"device\":{\"brand\":null,\"is_desktop\":true,\"is_mobile\":false,\"is_tablet\":false,\"model\":null},\"os_family\":\"Linux\",\"os_meta\":{\"name\":\"GNU/Linux\",\"platform\":\"x64\",\"short_name\":\"LIN\",\"version\":null},\"os_version\":{\"major\":0,\"minor\":0,\"patch\":0,\"summary\":\"Linux\"},\"ua_family\":\"Chrome\",\"ua_rendering_engine\":\"Blink\",\"ua_rendering_engine_version\":{\"major\":null,\"minor\":null,\"patch\":null,\"summary\":\"Blink\"},\"ua_type\":\"browser\",\"ua_version\":{\"major\":51,\"minor\":0,\"patch\":2704,\"summary\":\"Chrome 51.0.2704\"}},\"schema\":{\"properties\":{\"bot_info\":{\"properties\":{\"category\":{\"nullable\":true,\"type\":\"string\"},\"name\":{\"nullable\":true,\"type\":\"string\"},\"url\":{\"nullable\":true,\"type\":\"string\"},\"vendor\":{\"properties\":{\"name\":{\"nullable\":true,\"type\":\"string\"},\"url\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"},\"client\":{\"properties\":{\"bot\":{\"type\":\"boolean\"},\"user\":{\"type\":\"boolean\"}},\"type\":\"object\"},\"client_summary\":{\"description\":\"Summary of the client browser and OS\",\"type\":\"string\"},\"device\":{\"properties\":{\"brand\":{\"nullable\":true,\"type\":\"string\"},\"is_desktop\":{\"type\":\"boolean\"},\"is_mobile\":{\"type\":\"boolean\"},\"is_tablet\":{\"type\":\"boolean\"},\"model\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"},\"os_family\":{\"description\":\"Operating system family\",\"type\":\"string\"},\"os_meta\":{\"properties\":{\"name\":{\"type\":\"string\"},\"platform\":{\"type\":\"string\"},\"short_name\":{\"type\":\"string\"},\"version\":{\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"},\"os_version\":{\"properties\":{\"major\":{\"type\":\"integer\"},\"minor\":{\"type\":\"integer\"},\"patch\":{\"type\":\"integer\"},\"summary\":{\"type\":\"string\"}},\"type\":\"object\"},\"ua_family\":{\"description\":\"User agent family (e.g., Chrome, Firefox)\",\"type\":\"string\"},\"ua_rendering_engine\":{\"description\":\"Browser rendering engine\",\"type\":\"string\"},\"ua_rendering_engine_version\":{\"properties\":{\"major\":{\"nullable\":true,\"type\":\"integer\"},\"minor\":{\"nullable\":true,\"type\":\"integer\"},\"patch\":{\"nullable\":true,\"type\":\"integer\"},\"summary\":{\"type\":\"string\"}},\"type\":\"object\"},\"ua_type\":{\"description\":\"Type of user agent (e.g., browser, bot)\",\"type\":\"string\"},\"ua_version\":{\"properties\":{\"major\":{\"type\":\"integer\"},\"minor\":{\"type\":\"integer\"},\"patch\":{\"type\":\"integer\"},\"summary\":{\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successfully parsed user agent string\"},\"400\":{\"description\":\"Command unknown - The request is not recognized or formatted incorrectly\"},\"401\":{\"description\":\"Unauthorized - Invalid or missing API key\"},\"402\":{\"description\":\"Billing issue - Payment required or account billing problem\"},\"405\":{\"description\":\"Command invalid - The HTTP method used is not allowed\"},\"409\":{\"description\":\"Command malformed - The request parameters are incorrectly formatted\"},\"422\":{\"description\":\"Unprocessable - The request was well-formed but contains semantic errors\"},\"500\":{\"description\":\"Internal Server Error - An unexpected error occurred on the server\"}},\"security\":[{\"ApiKeyAuth\":[]}],\"securitySchemes\":{\"ApiKeyAuth\":{\"description\":\"API key required for authentication (72-character alphanumeric string)\",\"in\":\"query\",\"name\":\"key\",\"type\":\"apiKey\"}},\"securitySource\":\"operation\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/parse",
@@ -166,13 +236,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -263,6 +543,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -319,6 +695,48 @@
         "website": "https://useragent.app"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -873,6 +1291,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -914,7 +1333,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }
