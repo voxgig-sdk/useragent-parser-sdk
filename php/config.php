@@ -103,6 +103,8 @@ class UseragentParserConfig
                 "base" => "https://api.useragent.app",
                 "auth" => [
                     "prefix" => "",
+                    "in" => "query",
+                    "name" => "key",
                 ],
                 "headers" => [
           'content-type' => 'application/json',

@@ -105,12 +105,12 @@ local result, err = client:Parse():load({ key = "example", ua = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/useragent-parser-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
-| Python | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
-| PHP | `voxgig-sdk/useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
+| TypeScript | `@voxgig-sdk/useragent-parser-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/tags) |
+| Python | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/tags) |
+| PHP | `voxgig-sdk/useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/useragent-parser-sdk/go` | `go get github.com/voxgig-sdk/useragent-parser-sdk/go@latest` |
-| Ruby | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
-| Lua | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/releases) |
+| Ruby | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/tags) |
+| Lua | `voxgig-sdk-useragent-parser` | publish pending — [install from git tag](https://github.com/voxgig-sdk/useragent-parser-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/useragent-parser-sdk/go-cli` | `go install github.com/voxgig-sdk/useragent-parser-sdk/go-cli/cmd/useragent-parser@latest` |
 | Go MCP server | `github.com/voxgig-sdk/useragent-parser-sdk/go-mcp` | `go get github.com/voxgig-sdk/useragent-parser-sdk/go-mcp@latest` |
 
