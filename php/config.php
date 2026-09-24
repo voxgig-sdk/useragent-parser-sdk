@@ -118,55 +118,67 @@ class UseragentParserConfig
           'fields' => [
             [
               'name' => 'bot_info',
+              'title' => 'Bot Info',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'client',
+              'title' => 'Client',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'client_summary',
-              'short' => 'Summary of the client browser and OS',
+              'title' => 'Client Summary',
               'type' => '`$STRING`',
+              'short' => 'Summary of the client browser and OS',
             ],
             [
               'name' => 'device',
+              'title' => 'Device',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'os_family',
-              'short' => 'Operating system family',
+              'title' => 'Os Family',
               'type' => '`$STRING`',
+              'short' => 'Operating system family',
             ],
             [
               'name' => 'os_meta',
+              'title' => 'Os Meta',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'os_version',
+              'title' => 'Os Version',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'ua_family',
-              'short' => 'User agent family (e.g., Chrome, Firefox)',
+              'title' => 'Ua Family',
               'type' => '`$STRING`',
+              'short' => 'User agent family (e.g., Chrome, Firefox)',
             ],
             [
               'name' => 'ua_rendering_engine',
-              'short' => 'Browser rendering engine',
+              'title' => 'Ua Rendering Engine',
               'type' => '`$STRING`',
+              'short' => 'Browser rendering engine',
             ],
             [
               'name' => 'ua_rendering_engine_version',
+              'title' => 'Ua Rendering Engine Version',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'ua_type',
-              'short' => 'Type of user agent (e.g., browser, bot)',
+              'title' => 'Ua Type',
               'type' => '`$STRING`',
+              'short' => 'Type of user agent (e.g., browser, bot)',
             ],
             [
               'name' => 'ua_version',
+              'title' => 'Ua Version',
               'type' => '`$OBJECT`',
             ],
           ],
@@ -177,24 +189,6 @@ class UseragentParserConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'key',
-                        'orig' => 'key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'ua',
-                        'orig' => 'ua',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/parse',
@@ -203,18 +197,37 @@ class UseragentParserConfig
                       'lit' => 'parse',
                     ],
                   ],
+                  'parts' => [
+                    'parse',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'key',
+                        'orig' => 'key',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                      ],
+                      [
+                        'name' => 'ua',
+                        'orig' => 'ua',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'key',
                       'ua',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'parse',
                   ],
                 ],
               ],

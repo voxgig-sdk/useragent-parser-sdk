@@ -1,7 +1,7 @@
 // Typed models for the UseragentParser SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Parse is the typed data model for the parse entity.
 type Parse struct {
-	BotInfo *map[string]any `json:"bot_info,omitempty"`
-	Client *map[string]any `json:"client,omitempty"`
-	ClientSummary *string `json:"client_summary,omitempty"`
-	Device *map[string]any `json:"device,omitempty"`
-	OsFamily *string `json:"os_family,omitempty"`
-	OsMeta *map[string]any `json:"os_meta,omitempty"`
-	OsVersion *map[string]any `json:"os_version,omitempty"`
-	UaFamily *string `json:"ua_family,omitempty"`
-	UaRenderingEngine *string `json:"ua_rendering_engine,omitempty"`
-	UaRenderingEngineVersion *map[string]any `json:"ua_rendering_engine_version,omitempty"`
-	UaType *string `json:"ua_type,omitempty"`
-	UaVersion *map[string]any `json:"ua_version,omitempty"`
 }
 
 // ParseLoadMatch is the typed request payload for Parse.LoadTyped.

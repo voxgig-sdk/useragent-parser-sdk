@@ -96,55 +96,67 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "bot_info",
+						"title": "Bot Info",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "client",
+						"title": "Client",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "client_summary",
-						"short": "Summary of the client browser and OS",
+						"title": "Client Summary",
 						"type": "`$STRING`",
+						"short": "Summary of the client browser and OS",
 					},
 					map[string]any{
 						"name": "device",
+						"title": "Device",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "os_family",
-						"short": "Operating system family",
+						"title": "Os Family",
 						"type": "`$STRING`",
+						"short": "Operating system family",
 					},
 					map[string]any{
 						"name": "os_meta",
+						"title": "Os Meta",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "os_version",
+						"title": "Os Version",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "ua_family",
-						"short": "User agent family (e.g., Chrome, Firefox)",
+						"title": "Ua Family",
 						"type": "`$STRING`",
+						"short": "User agent family (e.g., Chrome, Firefox)",
 					},
 					map[string]any{
 						"name": "ua_rendering_engine",
-						"short": "Browser rendering engine",
+						"title": "Ua Rendering Engine",
 						"type": "`$STRING`",
+						"short": "Browser rendering engine",
 					},
 					map[string]any{
 						"name": "ua_rendering_engine_version",
+						"title": "Ua Rendering Engine Version",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "ua_type",
-						"short": "Type of user agent (e.g., browser, bot)",
+						"title": "Ua Type",
 						"type": "`$STRING`",
+						"short": "Type of user agent (e.g., browser, bot)",
 					},
 					map[string]any{
 						"name": "ua_version",
+						"title": "Ua Version",
 						"type": "`$OBJECT`",
 					},
 				},
@@ -155,24 +167,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "key",
-											"orig": "key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "ua",
-											"orig": "ua",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/parse",
@@ -181,18 +175,37 @@ func MakeConfig() map[string]any {
 										"lit": "parse",
 									},
 								},
+								"parts": []any{
+									"parse",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "key",
+											"orig": "key",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+										},
+										map[string]any{
+											"name": "ua",
+											"orig": "ua",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"key",
 										"ua",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"parse",
 								},
 							},
 						},

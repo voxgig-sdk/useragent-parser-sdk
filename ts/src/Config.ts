@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -145,55 +138,67 @@ class Config {
       "fields": [
         {
           "name": "bot_info",
+          "title": "Bot Info",
           "type": "`$OBJECT`"
         },
         {
           "name": "client",
+          "title": "Client",
           "type": "`$OBJECT`"
         },
         {
           "name": "client_summary",
-          "short": "Summary of the client browser and OS",
-          "type": "`$STRING`"
+          "title": "Client Summary",
+          "type": "`$STRING`",
+          "short": "Summary of the client browser and OS"
         },
         {
           "name": "device",
+          "title": "Device",
           "type": "`$OBJECT`"
         },
         {
           "name": "os_family",
-          "short": "Operating system family",
-          "type": "`$STRING`"
+          "title": "Os Family",
+          "type": "`$STRING`",
+          "short": "Operating system family"
         },
         {
           "name": "os_meta",
+          "title": "Os Meta",
           "type": "`$OBJECT`"
         },
         {
           "name": "os_version",
+          "title": "Os Version",
           "type": "`$OBJECT`"
         },
         {
           "name": "ua_family",
-          "short": "User agent family (e.g., Chrome, Firefox)",
-          "type": "`$STRING`"
+          "title": "Ua Family",
+          "type": "`$STRING`",
+          "short": "User agent family (e.g., Chrome, Firefox)"
         },
         {
           "name": "ua_rendering_engine",
-          "short": "Browser rendering engine",
-          "type": "`$STRING`"
+          "title": "Ua Rendering Engine",
+          "type": "`$STRING`",
+          "short": "Browser rendering engine"
         },
         {
           "name": "ua_rendering_engine_version",
+          "title": "Ua Rendering Engine Version",
           "type": "`$OBJECT`"
         },
         {
           "name": "ua_type",
-          "short": "Type of user agent (e.g., browser, bot)",
-          "type": "`$STRING`"
+          "title": "Ua Type",
+          "type": "`$STRING`",
+          "short": "Type of user agent (e.g., browser, bot)"
         },
         {
           "name": "ua_version",
+          "title": "Ua Version",
           "type": "`$OBJECT`"
         }
       ],
@@ -204,24 +209,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "key",
-                    "orig": "key",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "ua",
-                    "orig": "ua",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/parse",
@@ -230,19 +217,38 @@ class Config {
                   "lit": "parse"
                 }
               ],
+              "parts": [
+                "parse"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "key",
+                    "orig": "key",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "ua",
+                    "orig": "ua",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "key",
                   "ua"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "parse"
-              ]
+              }
             }
           ]
         }
