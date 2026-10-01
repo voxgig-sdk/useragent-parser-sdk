@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 UseragentParserUtility::setRegistrar(function (UseragentParserUtility $u): void {
     $u->clean = [UseragentParserClean::class, 'call'];
+    $u->clean_add = [UseragentParserClean::class, 'add'];
+    $u->clean_explain = [UseragentParserDone::class, 'clean_explain'];
     $u->done = [UseragentParserDone::class, 'call'];
     $u->make_error = [UseragentParserMakeError::class, 'call'];
     $u->feature_add = [UseragentParserFeatureAdd::class, 'call'];

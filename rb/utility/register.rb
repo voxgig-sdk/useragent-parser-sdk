@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 UseragentParserUtility.registrar = ->(u) {
   u.clean = UseragentParserUtilities::Clean
+  u.clean_add = UseragentParserUtilities::CleanAdd
+  u.clean_explain = UseragentParserUtilities::CleanExplain
   u.done = UseragentParserUtilities::Done
   u.make_error = UseragentParserUtilities::MakeError
   u.feature_add = UseragentParserUtilities::FeatureAdd
