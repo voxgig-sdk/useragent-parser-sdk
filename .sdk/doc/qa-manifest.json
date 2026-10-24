@@ -3,5 +3,18 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API for parsing user agent strings, providing structured information about the client&#39;s browser, operating system, and device type. Users can retrieve detailed data by submitting their user agent string along with an API key.",
+      "API key required for authentication (72-character alphanumeric string)",
+      "Browser rendering engine",
+      "Operating system family",
+      "Production server",
+      "Successfully parsed user agent string",
+      "Summary of the client browser and OS",
+      "Type of user agent (for example, browser, bot)",
+      "User agent family (for example, Chrome, Firefox)"
+    ]
+  }
 }

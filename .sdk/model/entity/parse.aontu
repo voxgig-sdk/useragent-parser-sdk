@@ -121,6 +121,10 @@ main: kit: entity: parse: {
               "ua"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "parse"

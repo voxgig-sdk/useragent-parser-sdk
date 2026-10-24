@@ -20,9 +20,23 @@ const PLAN = [
             "ua": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "key",
             "ua"
+        ],
+        "queryArgs": [
+            {
+                "name": "key",
+                "wire": "key"
+            },
+            {
+                "name": "ua",
+                "wire": "ua"
+            }
         ],
         "auth": [
             [
@@ -84,7 +98,8 @@ const PLAN = [
                 "user": true
             }
         },
-        "idField": "id"
+        "idField": "id",
+        "ownQuery": "key"
     }
 ];
 (0, node_test_1.describe)('definition', () => {

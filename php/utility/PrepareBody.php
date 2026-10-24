@@ -3,11 +3,16 @@ declare(strict_types=1);
 
 // UseragentParser SDK utility: prepare_body
 
+require_once __DIR__ . '/Media.php';
+
 class UseragentParserPrepareBody
 {
     public static function call(UseragentParserContext $ctx): mixed
     {
         if ($ctx->op->input === 'data') {
+            if (UseragentParserMedia::isRawRequest($ctx->point)) {
+                return UseragentParserMedia::rawBody($ctx->reqdata);
+            }
             $body = ($ctx->utility->transform_request)($ctx);
             // PHP cannot tell an empty map from an empty list, and this
             // vendored struct answers [] where the canonical transform

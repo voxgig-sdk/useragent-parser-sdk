@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { UseragentParserSDK, BaseFeature, stdutil } from '../../..'
+import { UseragentParserSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('ParseEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = UseragentParserSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Parse().load({"key":1,"ua":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.USERAGENT_PARSER_TEST_LIVE
@@ -51,7 +63,7 @@ describe('ParseEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"bot_info":{"a":true,"h":"Bot Info","n":"bot_info","r":false,"t":"`$OBJECT`","key$":"bot_info","index$":0},"client":{"a":true,"h":"Client","n":"client","r":false,"t":"`$OBJECT`","key$":"client","index$":1},"client_summary":{"a":true,"h":"Client Summary","n":"client_summary","r":false,"sh":"Summary of the client browser and OS","t":"`$STRING`","key$":"client_summary","index$":2},"device":{"a":true,"h":"Device","n":"device","r":false,"t":"`$OBJECT`","key$":"device","index$":3},"os_family":{"a":true,"h":"Os Family","n":"os_family","r":false,"sh":"Operating system family","t":"`$STRING`","key$":"os_family","index$":4},"os_meta":{"a":true,"h":"Os Meta","n":"os_meta","r":false,"t":"`$OBJECT`","key$":"os_meta","index$":5},"os_version":{"a":true,"h":"Os Version","n":"os_version","r":false,"t":"`$OBJECT`","key$":"os_version","index$":6},"ua_family":{"a":true,"h":"Ua Family","n":"ua_family","r":false,"sh":"User agent family (e.g., Chrome, Firefox)","t":"`$STRING`","key$":"ua_family","index$":7},"ua_rendering_engine":{"a":true,"h":"Ua Rendering Engine","n":"ua_rendering_engine","r":false,"sh":"Browser rendering engine","t":"`$STRING`","key$":"ua_rendering_engine","index$":8},"ua_rendering_engine_version":{"a":true,"h":"Ua Rendering Engine Version","n":"ua_rendering_engine_version","r":false,"t":"`$OBJECT`","key$":"ua_rendering_engine_version","index$":9},"ua_type":{"a":true,"h":"Ua Type","n":"ua_type","r":false,"sh":"Type of user agent (e.g., browser, bot)","t":"`$STRING`","key$":"ua_type","index$":10},"ua_version":{"a":true,"h":"Ua Version","n":"ua_version","r":false,"t":"`$OBJECT`","key$":"ua_version","index$":11}},"name":"parse","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /parse","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"key","or":"key","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"ua","or":"ua","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/parse","q":{"exist":["key","ua"]},"r":{},"s":[{"lit":"parse"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"parse","name__orig":"parse","Name":"Parse","name_":"parse","name-":"parse","NAME":"PARSE","index$":0}, {"active":true,"entity":"parse","key$":"BasicParseFlow","kind":"basic","name":"BasicParseFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"parse_ref01","srcdatavar":"parse_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-parse_ref01"}}],"index$":0}]}, 'Parse', {"GET /parse":{"protocol":"http","parameters":[{"name":"key","in":"query","required":true,"description":"API key (72-character alphanumeric string)","schema":{"type":"string","minLength":72,"maxLength":72,"pattern":"^[a-zA-Z0-9]{72}$"},"index$":0},{"name":"ua","in":"query","required":true,"description":"User agent string to be parsed","schema":{"type":"string"},"index$":1}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"bot_info":{"a":true,"h":"Bot Info","n":"bot_info","r":false,"t":"`$OBJECT`","key$":"bot_info","index$":0},"client":{"a":true,"h":"Client","n":"client","r":false,"t":"`$OBJECT`","key$":"client","index$":1},"client_summary":{"a":true,"h":"Client Summary","n":"client_summary","r":false,"sh":"Summary of the client browser and OS","t":"`$STRING`","key$":"client_summary","index$":2},"device":{"a":true,"h":"Device","n":"device","r":false,"t":"`$OBJECT`","key$":"device","index$":3},"os_family":{"a":true,"h":"Os Family","n":"os_family","r":false,"sh":"Operating system family","t":"`$STRING`","key$":"os_family","index$":4},"os_meta":{"a":true,"h":"Os Meta","n":"os_meta","r":false,"t":"`$OBJECT`","key$":"os_meta","index$":5},"os_version":{"a":true,"h":"Os Version","n":"os_version","r":false,"t":"`$OBJECT`","key$":"os_version","index$":6},"ua_family":{"a":true,"h":"Ua Family","n":"ua_family","r":false,"sh":"User agent family (e.g., Chrome, Firefox)","t":"`$STRING`","key$":"ua_family","index$":7},"ua_rendering_engine":{"a":true,"h":"Ua Rendering Engine","n":"ua_rendering_engine","r":false,"sh":"Browser rendering engine","t":"`$STRING`","key$":"ua_rendering_engine","index$":8},"ua_rendering_engine_version":{"a":true,"h":"Ua Rendering Engine Version","n":"ua_rendering_engine_version","r":false,"t":"`$OBJECT`","key$":"ua_rendering_engine_version","index$":9},"ua_type":{"a":true,"h":"Ua Type","n":"ua_type","r":false,"sh":"Type of user agent (e.g., browser, bot)","t":"`$STRING`","key$":"ua_type","index$":10},"ua_version":{"a":true,"h":"Ua Version","n":"ua_version","r":false,"t":"`$OBJECT`","key$":"ua_version","index$":11}},"name":"parse","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /parse","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"key","or":"key","r":true,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"ua","or":"ua","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/parse","q":{"exist":["key","ua"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"parse"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"parse","name__orig":"parse","Name":"Parse","name_":"parse","name-":"parse","NAME":"PARSE","index$":0}, {"active":true,"entity":"parse","key$":"BasicParseFlow","kind":"basic","name":"BasicParseFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"parse_ref01","srcdatavar":"parse_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-parse_ref01"}}],"index$":0}]}, 'Parse', {"GET /parse":{"protocol":"http","parameters":[{"name":"key","in":"query","required":true,"description":"API key (72-character alphanumeric string)","schema":{"type":"string","minLength":72,"maxLength":72,"pattern":"^[a-zA-Z0-9]{72}$"},"index$":0},{"name":"ua","in":"query","required":true,"description":"User agent string to be parsed","schema":{"type":"string"},"index$":1}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('ParseEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options
